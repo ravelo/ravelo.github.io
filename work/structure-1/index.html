@@ -5,83 +5,59 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Tricia Ravelo | Structure Sensor Demo Apps</title>
+	<title>Tricia Ravelo | 3D Mobile Sensor Deep Dive</title>
 	<meta name="description" content="">
-	<link href="https://fonts.googleapis.com/css?family=Archivo|Archivo+Black" rel="stylesheet">
+
+	<link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;&display=swap" rel="stylesheet">
 	<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/ico/favicon-32x32.png">
 	<link rel="stylesheet" href="/assets/css/main.css">
 	<link rel="canonical" href="http://localhost:8000/work/structure-1/">
 </head>
 
-<body>
+
+<body class="project ">
 	
 	<header class="site-header container">
-		<h1 class="site-title"><a href="/">Tricia Ravelo</a></h1>
+		<h1 class="site-title visiblyhidden"><a href="/">Tricia Ravelo</a></h1>
 		<nav class="site-nav">
 			<ul>
-				<li>&mdash;<a href="/work/">Work</a></li>
-				<li>&mdash;<a href="/info/">Info</a></li>
-			</ul>
-		</nav>
+				
+				<li>&nbsp;/&nbsp;
+					<a href="/">Info</a>
+				</li>
+				<li>&nbsp;/&nbsp;
+					<a href="/work/">Work</a>
+				</li>
+				<li>&nbsp;/&nbsp;
+					<a href="/journal/">Journal</a>
+				</li>
+   			</ul>
+   		</nav>
 	</header>
 
-<article role="main" class="project-case-study">
-	<section class="section-top">
-		<header class="project-header margin-top">
-			<h1 class="display-text">Structure Sensor Demo Apps</h1>
-			<p class="project-header-focus caption visiblyhidden">Usability Audit</p>
-		</header>
-		
-		<div class="container container-large">
-			<div class="img-grid img-grid-hero">
-				<img src="/assets/img/projects/structure-1/testing.jpg" alt="Conducting user interviews and usability tests" class="project-hero-img">
-			</div>
-		</div>
-		
 
-		<div class="container container-large">
-			<div class="project-overview-info">
-				<p>Assessing the impact of demo applications for a mobile 3D sensor through user research, usability testing, and interface improvements/2015</p>
-			</div>
-			<div class="project-overview">
-				<div class="project-overview-aside">
-					<h2>Overview</h2>
-					<ul class="list-overview list-overview-full">
-						<li><span>Client</span> Occipital</li>
-						<li><span>Role</span> UX designer</li>
-					</ul>
-				</div>
-				<div class="project-overview-main">
-				    <h2>Methods</h2>
-					<ul class="list-overview">
-					
-						<li><span>Research</span> User interviews, usability testing, mental models, heuristic analysis, competitor analysis</li>
-					
-						<li><span>UX</span> Personas, user flows, wireframes, paper prototypes</li>
-					
-					</ul>
-				</div>
-			</div>
-		</div>
+
+<article role="main" class="project-case-study">
+	<section class="section-top bg-color-dark text-reverse">
+		<header class="project-header container container-medium">
+			<p class="accent-text">The Structure Sensor hardware unlocks spatial computing capabilities on normal mobile devices&mdash;allowing for 3D scanning, mapping, and mixed reality experiences. So what's the best way to introduce someone to this new potential?</p>
+			<p class="caption">2015 / Experience Audit / 3D Mobile Application</p>
+		</header>
 	</section>
 
-
 	<section class="project-content container-row bg-color-clear">
-		
-		<div class="container">
-			<h2><span class="accent-text-secondary">Case study&mdash;Encountering the limitations of interface improvements</span></h2>
-		</div>
 		
 
     	<div class="container">
 
-  <h2>The client</h2>
-  <p><a href="https://occipital.com/" class="redirect">Occipital</a> is a San Francisco-based company working to integrate spatial computing into everyday life. Their <a href="http://structure.io/" class="redirect">Structure Sensor</a> (a wireless 3D sensor that attaches to phones and tablets) is the hardware component of a platform that provides first-of-its-kind mobile 3D technology at a consumer-level price.</p>
+  <h2>Background</h2>
+  <p><a href="https://occipital.com/" class="redirect">Occipital</a> is a San Francisco-based company that’s integrating spatial computing into everyday life. Their <a href="http://structure.io/" class="redirect">Structure Sensor</a> (a wireless 3D sensor that attaches to phones and tablets) is the hardware component of a platform that provides first-of-its-kind mobile 3D technology at a consumer-level price.</p>
 
   <h2>The opportunity</h2>
   <p>Developers building iOS apps for the sensor work with demo apps that show how the technology functions through simple examples of working code. Since these demo apps are often the first introduction to the sensor and its capabilities, some developers will decide whether to pursue this platform based on their experiences with them. The Fresh Tilled Soil project team<a aria-describedby="footnote-label" href="#project-team" id="project-team-ref">*</a> was tasked with finding opportunities to improve this first-time experience with a thorough usability audit of three demo apps.</p>
 
-  <h3 class="visiblyhidden" id="footnote-label">Project team</h3>
+  <h2 class="visiblyhidden" id="footnote-label">Project team</h2>
   <p class="caption" id="project-team">*Fresh Tilled Soil project team: Islanda Naughton, Luke Selinger, Suzanne Wu, and me (Fall 2015 UX apprentices) <a href="#project-team-ref" aria-label="Back to content">	↩</a></p>
 
   <h2>Demo apps to evaluate</h2>
@@ -103,7 +79,7 @@
   <h2>Initial insights</h2>
   <p>We began with user interviews, usability testing, and a heuristic analysis of each demo app. After analyzing and organizing our findings from research and testing, we constructed user personas and created a mental model that we used to identify where the motivations and expectations of the users diverged from actual experiences with each app. From this emerged a set of principles that would guide the UI improvements.</p>
 
-  <h2>Our guiding principles for a better UI</h2>
+  <h2>Our guiding principles for a better demo experience</h2>
   <ul>
     <li>Make an unfamiliar technology feel comfortable</li>
     <li>Increase excitement</li>
@@ -176,11 +152,25 @@
 
 
     </section>
+
+	<section class="project-details">
+		<div class="container container-small">
+			<h6>Office</h6>
+			<p class="caption-alt">Fresh Tilled Soil (2015)</p>
+			
+			<h6>Client</h6>
+			<p class="caption-alt">Occipital</p>
+			
+			<h6>Responsibilities</h6>
+			<p class="caption-alt">Generative and Evaluative Research, Heuristic Analysis</p>
+		</div>
+	</section>
+
 </article>
 
 <footer>
 	<div class="container">
-		<p><span class="accent-text">Say hello </span> &mdash;<a class="redirect" href="&#109;&#097;&#105;&#108;&#116;&#111;:&#116;&#114;&#105;&#099;&#105;&#097;&#064;&#116;&#114;&#105;&#099;&#105;&#097;&#114;&#097;&#118;&#101;&#108;&#111;&#046;&#099;&#111;&#109;">Email</a> &mdash;<a class="redirect" href="https://www.linkedin.com/in/triciaravelo">LinkedIn</a> &mdash;<a class="redirect" href="https://www.instagram.com/triciaravelo/">Instagram</a></p>
+		<p><span>Tricia Ravelo</span> &#8594; <a href="https://www.linkedin.com/in/triciaravelo">LinkedIn</a> &#47; <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#116;&#114;&#105;&#099;&#105;&#097;&#064;&#116;&#114;&#105;&#099;&#105;&#097;&#114;&#097;&#118;&#101;&#108;&#111;&#046;&#099;&#111;&#109;">Email</a> &#47; <a href="https://www.instagram.com/triciaravelo/">Instagram</a></p>
 	</div>
 </footer>
 
