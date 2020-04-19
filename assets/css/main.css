@@ -85,6 +85,8 @@ ul.list-horizontal.list-secondary li { font-family: "Archivo Black", sans-serif;
 
 @media (max-width: 42em) { .project-list .focus { font-size: 0.75rem; display: block; padding-left: 0; margin-bottom: 0.5rem; } }
 
+@media (max-width: 68em) { .project-header p.accent-text, .project-header p.accent-text-xl, .project-header p.accent-text-xxl { font-family: "Inter", sans-serif; font-weight: 500; } }
+
 .project-header p.caption, .project-header p.caption-alt, .project-header .project-list p.focus, .project-list .project-header p.focus { margin-top: 1.3rem; font-weight: 500; color: #d0d0d0; }
 
 .project-content h2 { padding-right: 10%; margin-top: 2.6rem; }
