@@ -1,0 +1,247 @@
+// -----------------------------------------------------
+
+// SETUP
+
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'Basis Grotesque Web';
+    src: url('fonts/basis-grotesque-regular.eot');
+    src: url('fonts/basis-grotesque-regular.eot?#iefix') format('embedded-opentype'),
+         url('fonts/basis-grotesque-regular.woff2') format('woff2'),
+         url('fonts/basis-grotesque-regular.woff') format('woff'),
+         url('fonts/basis-grotesque-regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'Basis Grotesque Black Web';
+    src: url('fonts/basis-grotesque-black-italic.eot');
+    src: url('fonts/basis-grotesque-black-italic.eot?#iefix') format('embedded-opentype'),
+         url('fonts/basis-grotesque-black-italic.woff2') format('woff2'),
+         url('fonts/basis-grotesque-black-italic.woff') format('woff'),
+         url('fonts/basis-grotesque-black-italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+font-family: 'Canela Web';
+src: url('fonts/Canela-Thin-Web.woff2') format('woff2'),
+url('fonts/Canela-Thin-Web.woff') format('woff');
+font-weight: normal;
+font-style: normal;
+font-stretch: normal;
+}
+
+// -----------------------------------------------------
+
+
+@mixin breakpoint($point) {
+
+  @if $point == large {
+      @media (min-width: 80em) { @content ; }
+  }
+
+  @else if $point == medium {
+       @media (min-width: 54em) { @content ; }
+  }
+
+  @else if $point == small {
+       @media (min-width: 36em) { @content ; }
+  }
+
+}
+
+// -----------------------------------------------------
+
+
+// VARIABLES: Globals
+//$primary-color: #e7e7e5;
+$primary-color: #f8f7f6; // light
+$alt-color: #09090c; //dark
+$text-color: #010023;
+$text-reverse: $primary-color;
+$highlight-color: #ffdbc0;
+$serif: 'Canela Web';
+$sans-serif: 'Basis Grotesque Web';
+$sans-serif-display: 'Basis Grotesque Black Web';
+
+// VARIABLES: Layout
+$spacing-unit: 3rem;
+$vertical-rhythm-base: $spacing-unit;
+$vertical-rhythm-relaxed: $spacing-unit * 2.4;
+$vertical-rhythm-tight: $spacing-unit/2;
+$border: 1px dotted rgba($text-color, 1);
+
+// VARIABLES: Typography
+%serif { font-family: 'Canela Web'; font-weight: 100; font-style: normal; font-stretch: normal; }
+
+$text-size-0: 7.993rem;
+$text-size-1: 5.653rem;
+$text-size-2: 3.998rem;
+$text-size-3: 2.827rem;
+$text-size-4: 1.999rem;
+$text-size-5: 1.414rem;
+$text-size-6: 1rem;
+$text-size-7: 0.707rem;
+
+
+// -----------------------------------------------------
+
+// Typography Globals
+
+html {
+  font-size: 12px;
+  @include breakpoint(medium) { font-size: 16px; }
+}
+
+body {
+  background-color: $primary-color;
+  color: $text-color;
+  font-family: $sans-serif;
+  font-kerning: normal;
+}
+
+// Text sizes
+
+h1, h2, h3,
+.text-xxl,
+.text-xl,
+.text-l {
+  font-size: $text-size-3;
+  line-height: 1.2;
+  @include breakpoint(small) { font-size: $text-size-2; }
+}
+
+.text-xxl {
+  @include breakpoint(medium) { font-size: $text-size-0; }
+}
+
+.text-xl {
+  @include breakpoint(medium) { font-size: $text-size-1; }
+}
+
+.text-l, h1 {
+  @include breakpoint(medium) { font-size: $text-size-2; }
+}
+
+.text-m { font-size: $text-size-3; }
+.text-s { font-size: $text-size-5; }
+.text-xs { font-size: $text-size-6; }
+
+
+
+h1 {
+  @extend %serif;
+  margin-bottom: $vertical-rhythm-tight;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+  font-size: $text-size-5;
+  line-height: 1.3;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: $border;
+
+  &:hover {
+    background-color: $highlight-color;
+    color: $text-color;
+    border-bottom: none;
+  }
+}
+
+// Text helper classes
+.text-sans { font-family: $sans-serif; }
+.text-sans-display { font-family: $sans-serif-display; }
+.text-serif { @extend %serif; }
+.text-indent { text-indent: $spacing-unit*.75;}
+.text-bottom-margin { margin-bottom: $vertical-rhythm-relaxed; }
+.uppercase { text-transform: uppercase; }
+.text-center { text-align: center;}
+.text-center-responsive {
+  text-align: left;
+  @include breakpoint(medium) { text-align: center; }
+}
+
+
+// -----------------------------------------------------
+// Structure
+
+
+header, section {
+  padding: 0;
+  max-width: 90rem;
+  margin: $vertical-rhythm-tight auto;
+}
+
+.border-top { border-top: $border;}
+
+
+.wrapper-full,
+.wrapper-wide,
+.wrapper-normal,
+.wrapper-narrow,
+.wrapper-relaxed {
+  padding: $vertical-rhythm-base 0;
+  margin-left: $vertical-rhythm-tight;
+  margin-right: $vertical-rhythm-tight;
+}
+
+footer {
+  padding: $vertical-rhythm-tight 0;
+  background: $alt-color;
+  color: $text-reverse;
+  a { border-color: $text-reverse; }
+  @include breakpoint(medium) { padding: $vertical-rhythm-base 0; }
+}
+
+.wrapper-relaxed {
+  @include breakpoint(medium) { padding-top: $vertical-rhythm-relaxed; padding-bottom: $vertical-rhythm-relaxed; }
+}
+
+.wrapper-tight {
+  padding-top: $vertical-rhythm-tight;
+  padding-bottom: $vertical-rhythm-tight;
+}
+
+.wrapper-wide {
+  @include breakpoint(medium) { padding-left: 8%; padding-right: 8%;}
+}
+
+.wrapper-normal {
+  @include breakpoint(medium) { padding-left: 16%; padding-right: 16%; }
+}
+
+.wrapper-narrow {
+  @include breakpoint(small) { padding-left: 0; padding-right: 0; }
+  @include breakpoint(medium) { padding-left: 18%; padding-right: 18%; }
+  @include breakpoint(large) { padding-left: 28%; padding-right: 28%; }
+}
+
+.wrapper-no-spacing { padding-top: 0; padding-bottom: 0;}
+
+section img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: $vertical-rhythm-base;
+  margin-top: $vertical-rhythm-base;
+
+  &.illo { width: 100%; @include breakpoint(medium) { width: 60%; } }
+  &.stretch { width: 100%; }
+  &.blend { mix-blend-mode: darken; }
+}
+
+
+// Global Helper Classes
+
+.visiblyhidden { position: absolute; overflow: hidden; clip: rect(0 0 0 0); height: 1px; width: 1px; margin: -1px; padding: 0; border: 0; }
