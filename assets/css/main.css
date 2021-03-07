@@ -130,12 +130,17 @@ p {
 a {
   color: inherit;
   text-decoration: none;
-  border-bottom: 2px dotted #0e0e0e;
+  border-bottom: 1px dotted #0e0e0e;
 }
 a:hover {
   background-color: #ffd7c0;
   color: #0e0e0e;
   border-bottom: none;
+}
+@media (min-width: 48em) {
+  a {
+    border-bottom: 2px dotted #0e0e0e;
+  }
 }
 
 .text-sans {
