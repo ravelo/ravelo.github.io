@@ -19,6 +19,34 @@
   font-style: normal;
   font-stretch: normal;
 }
+.bg-neutral-lt {
+  background-color: #fbfafa;
+}
+
+.bg-neutral {
+  background-color: #fbf7f4;
+}
+
+.bg-primary-lt {
+  background-color: #fff6ec;
+}
+
+.bg-primary {
+  background-color: #fee8d3;
+}
+
+.bg-dark {
+  background-color: #0e0e0e;
+}
+
+.border-top {
+  border-top: 2px dotted #0e0e0e;
+}
+
+.text-reverse {
+  color: #ffffff;
+}
+
 .text-serif, h1 {
   font-family: "Canela Web";
   font-weight: 100;
@@ -29,7 +57,7 @@
 html {
   font-size: 14px;
 }
-@media (min-width: 54em) {
+@media (min-width: 48em) {
   html {
     font-size: 16px;
   }
@@ -37,7 +65,7 @@ html {
 
 body {
   background-color: white;
-  color: #010023;
+  color: #0e0e0e;
   font-family: "Basis Grotesque Web";
   font-kerning: normal;
 }
@@ -58,19 +86,19 @@ h1, h2, h3,
   }
 }
 
-@media (min-width: 54em) {
+@media (min-width: 48em) {
   .text-xxl {
     font-size: 7.993rem;
   }
 }
 
-@media (min-width: 54em) {
+@media (min-width: 48em) {
   .text-xl {
     font-size: 5.653rem;
   }
 }
 
-@media (min-width: 54em) {
+@media (min-width: 48em) {
   .text-l, h1 {
     font-size: 3.998rem;
   }
@@ -102,11 +130,11 @@ p {
 a {
   color: inherit;
   text-decoration: none;
-  border-bottom: 2px dotted #010023;
+  border-bottom: 2px dotted #0e0e0e;
 }
 a:hover {
-  background-color: #ffdecc;
-  color: #010023;
+  background-color: #ffd7c0;
+  color: #0e0e0e;
   border-bottom: none;
 }
 
@@ -137,78 +165,84 @@ a:hover {
 .text-center-responsive {
   text-align: left;
 }
-@media (min-width: 54em) {
+@media (min-width: 48em) {
   .text-center-responsive {
     text-align: center;
   }
 }
 
-header, section {
+header, section, footer {
   padding: 0;
-  max-width: 90rem;
-  margin: 1.5rem auto;
-}
-
-.border-top {
-  border-top: 2px dotted #010023;
+  margin: 0 auto;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 
 .wrapper-full,
 .wrapper-wide,
 .wrapper-normal,
-.wrapper-narrow,
-.wrapper-relaxed {
-  padding: 3rem 0;
-  margin-left: 1.5rem;
-  margin-right: 1.5rem;
+.wrapper-narrow {
+  padding: 3rem 1.5rem;
+  margin: 0 auto;
+  max-width: 80rem;
 }
 
-footer {
-  padding: 1.5rem 0;
-  background: #f7f3f1;
-}
-@media (min-width: 54em) {
-  footer {
-    padding: 3rem 0;
-  }
+.vspace-relaxed,
+.vspace-tight {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 
-@media (min-width: 54em) {
-  .wrapper-relaxed {
+.vspace-relaxed-top {
+  padding-top: 3rem;
+}
+
+.vspace-relaxed-bottom {
+  padding-bottom: 3rem;
+}
+
+.vspace-clear {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+@media (min-width: 48em) {
+  .vspace-relaxed {
     padding-top: 7.2rem;
     padding-bottom: 7.2rem;
   }
 }
 
-.wrapper-tight {
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
+@media (min-width: 48em) {
+  .vspace-relaxed-top {
+    padding-top: 7.2rem;
+  }
 }
 
-@media (min-width: 54em) {
+@media (min-width: 48em) {
+  .vspace-relaxed-bottom {
+    padding-bottom: 7.2rem;
+  }
+}
+
+@media (min-width: 48em) {
   .wrapper-wide {
     padding-left: 8%;
     padding-right: 8%;
   }
 }
 
-@media (min-width: 54em) {
+@media (min-width: 48em) {
   .wrapper-normal {
     padding-left: 16%;
     padding-right: 16%;
   }
 }
 
-@media (min-width: 36em) {
+@media (min-width: 48em) {
   .wrapper-narrow {
-    padding-left: 0;
-    padding-right: 0;
-  }
-}
-@media (min-width: 54em) {
-  .wrapper-narrow {
-    padding-left: 18%;
-    padding-right: 18%;
+    padding-left: 22%;
+    padding-right: 22%;
   }
 }
 @media (min-width: 80em) {
@@ -218,22 +252,16 @@ footer {
   }
 }
 
-.wrapper-no-spacing {
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
 section img {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 3rem;
   margin-top: 3rem;
 }
 section img.illo {
   width: 90%;
 }
-@media (min-width: 54em) {
+@media (min-width: 48em) {
   section img.illo {
     width: 54%;
   }
@@ -243,6 +271,18 @@ section img.stretch {
 }
 section img.blend {
   mix-blend-mode: darken;
+}
+
+.wrapper-img {
+  padding: 3rem 0;
+  padding-top: 0;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+@media (min-width: 48em) {
+  .wrapper-img {
+    margin: auto;
+  }
 }
 
 .visiblyhidden {
