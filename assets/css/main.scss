@@ -56,17 +56,16 @@ font-stretch: normal;
 
 }
 
-// -----------------------------------------------------
+// ----------------------------------------------------- THEME
 
 
 // VARIABLES: Globals
-$primary-color: #f8f7f6; // light
-$primary-color: #f3f0ed;
-$alt-color: #09090c; //dark
-//$alt-color: #fdfaf6; //beige
+$primary-color: #ffefe1; //light
+$primary-color: #f7f3f1;
+//$alt-color: #09090c; //dark
 $text-color: #010023;
-$text-reverse: $primary-color;
-$highlight-color: #ffdbc0;
+$highlight-color: #ffdecc;
+$body-color: white;
 $serif: 'Canela Web';
 $sans-serif: 'Basis Grotesque Web';
 $sans-serif-display: 'Basis Grotesque Black Web';
@@ -76,7 +75,7 @@ $spacing-unit: 3rem;
 $vertical-rhythm-base: $spacing-unit;
 $vertical-rhythm-relaxed: $spacing-unit * 2.4;
 $vertical-rhythm-tight: $spacing-unit/2;
-$border: 1px dotted rgba($text-color, 1);
+$border: 2px dotted rgba($text-color, 1);
 
 // VARIABLES: Typography
 %serif { font-family: 'Canela Web'; font-weight: 100; font-style: normal; font-stretch: normal; }
@@ -101,7 +100,7 @@ html {
 }
 
 body {
-  background-color: #fcfcfc;
+  background-color: $body-color;
   color: $text-color;
   font-family: $sans-serif;
   font-kerning: normal;

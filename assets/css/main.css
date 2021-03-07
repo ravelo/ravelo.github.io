@@ -36,7 +36,7 @@ html {
 }
 
 body {
-  background-color: #fcfcfc;
+  background-color: white;
   color: #010023;
   font-family: "Basis Grotesque Web";
   font-kerning: normal;
@@ -102,10 +102,10 @@ p {
 a {
   color: inherit;
   text-decoration: none;
-  border-bottom: 1px dotted #010023;
+  border-bottom: 2px dotted #010023;
 }
 a:hover {
-  background-color: #ffdbc0;
+  background-color: #ffdecc;
   color: #010023;
   border-bottom: none;
 }
@@ -150,7 +150,7 @@ header, section {
 }
 
 .border-top {
-  border-top: 1px dotted #010023;
+  border-top: 2px dotted #010023;
 }
 
 .wrapper-full,
@@ -165,7 +165,7 @@ header, section {
 
 footer {
   padding: 1.5rem 0;
-  background: #f3f0ed;
+  background: #f7f3f1;
 }
 @media (min-width: 54em) {
   footer {
