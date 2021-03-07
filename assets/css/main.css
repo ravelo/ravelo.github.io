@@ -27,7 +27,7 @@
 }
 
 html {
-  font-size: 12px;
+  font-size: 14px;
 }
 @media (min-width: 54em) {
   html {
@@ -36,7 +36,7 @@ html {
 }
 
 body {
-  background-color: #f8f7f6;
+  background-color: #fcfcfc;
   color: #010023;
   font-family: "Basis Grotesque Web";
   font-kerning: normal;
@@ -47,7 +47,7 @@ h1, h2, h3,
 .text-xl,
 .text-l {
   font-size: 2.827rem;
-  line-height: 1.2;
+  line-height: 1.24;
 }
 @media (min-width: 36em) {
   h1, h2, h3,
@@ -165,11 +165,7 @@ header, section {
 
 footer {
   padding: 1.5rem 0;
-  background: #09090c;
-  color: #f8f7f6;
-}
-footer a {
-  border-color: #f8f7f6;
+  background: #f3f0ed;
 }
 @media (min-width: 54em) {
   footer {
@@ -235,11 +231,11 @@ section img {
   margin-top: 3rem;
 }
 section img.illo {
-  width: 100%;
+  width: 90%;
 }
 @media (min-width: 54em) {
   section img.illo {
-    width: 60%;
+    width: 54%;
   }
 }
 section img.stretch {

@@ -60,9 +60,10 @@ font-stretch: normal;
 
 
 // VARIABLES: Globals
-//$primary-color: #e7e7e5;
 $primary-color: #f8f7f6; // light
+$primary-color: #f3f0ed;
 $alt-color: #09090c; //dark
+//$alt-color: #fdfaf6; //beige
 $text-color: #010023;
 $text-reverse: $primary-color;
 $highlight-color: #ffdbc0;
@@ -95,12 +96,12 @@ $text-size-7: 0.707rem;
 // Typography Globals
 
 html {
-  font-size: 12px;
+  font-size: 14px;
   @include breakpoint(medium) { font-size: 16px; }
 }
 
 body {
-  background-color: $primary-color;
+  background-color: #fcfcfc;
   color: $text-color;
   font-family: $sans-serif;
   font-kerning: normal;
@@ -113,7 +114,7 @@ h1, h2, h3,
 .text-xl,
 .text-l {
   font-size: $text-size-3;
-  line-height: 1.2;
+  line-height: 1.24;
   @include breakpoint(small) { font-size: $text-size-2; }
 }
 
@@ -198,9 +199,7 @@ header, section {
 
 footer {
   padding: $vertical-rhythm-tight 0;
-  background: $alt-color;
-  color: $text-reverse;
-  a { border-color: $text-reverse; }
+  background: $primary-color;
   @include breakpoint(medium) { padding: $vertical-rhythm-base 0; }
 }
 
@@ -236,7 +235,7 @@ section img {
   margin-bottom: $vertical-rhythm-base;
   margin-top: $vertical-rhythm-base;
 
-  &.illo { width: 100%; @include breakpoint(medium) { width: 60%; } }
+  &.illo { width: 90%; @include breakpoint(medium) { width: 54%; } }
   &.stretch { width: 100%; }
   &.blend { mix-blend-mode: darken; }
 }
