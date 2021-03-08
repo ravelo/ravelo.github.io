@@ -1,44 +1,41 @@
-// -----------------------------------------------------
+/*
+ *
+ * PORTFOLIO STYLING / 2021
+ *
+ * Notes!
+ * ~ No partials because this is a temp one-pager design
+ * ~ SCSS structure will map to @imports when ready
+ *
+*/
 
-// SETUP
+// --------------------------------------------------------- *
+//
+//
+// 00   MAIN
+//      ~ Output file (@import partials here)
+//
+//      01 CSS Reset --> merge later, using separate CSS resource for now
+//      02 Utils
+//      03 Base
+//      04 Layout
+//
+//
+// --------------------------------------------------------- *
 
 @charset "UTF-8";
 
-@font-face {
-    font-family: 'Basis Grotesque Web';
-    src: url('fonts/basis-grotesque-regular.eot');
-    src: url('fonts/basis-grotesque-regular.eot?#iefix') format('embedded-opentype'),
-         url('fonts/basis-grotesque-regular.woff2') format('woff2'),
-         url('fonts/basis-grotesque-regular.woff') format('woff'),
-         url('fonts/basis-grotesque-regular.ttf') format('truetype');
-    font-weight: 400;
-    font-style: normal;
-}
+// --------------------------------------------------------- *
+//
+//
+// 02   UTILS
+//      ~ Global mixins, functions, variables, etc
+//
+//
+// --------------------------------------------------------- *
 
-
-@font-face {
-    font-family: 'Basis Grotesque Black Web';
-    src: url('fonts/basis-grotesque-black-italic.eot');
-    src: url('fonts/basis-grotesque-black-italic.eot?#iefix') format('embedded-opentype'),
-         url('fonts/basis-grotesque-black-italic.woff2') format('woff2'),
-         url('fonts/basis-grotesque-black-italic.woff') format('woff'),
-         url('fonts/basis-grotesque-black-italic.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-
-@font-face {
-font-family: 'Canela Web';
-src: url('fonts/Canela-Thin-Web.woff2') format('woff2'),
-url('fonts/Canela-Thin-Web.woff') format('woff');
-font-weight: normal;
-font-style: normal;
-font-stretch: normal;
-}
-
-// -----------------------------------------------------
-
+// The responsive approach here is weird?
+// ~ Default CSS attributes are defined at the SMALLEST screen size
+// ~ Any style overrides via media query apply to LARGER screens
 
 @mixin breakpoint($point) {
 
@@ -60,53 +57,57 @@ font-stretch: normal;
 
 }
 
-// ----------------------------------------------------- THEME
+// --------------------------------------------------------- /
+// Global helper classes
+// --------------------------------------------------------- /
 
+// Hide element while making it readable for screen readers
+// ~ From HTML5Boilerplate: https://github.com/h5bp/html5-boilerplate
 
+.visiblyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
 
+// --------------------------------------------------------- /
+// Variables: Vertical spacing
+// --------------------------------------------------------- /
 
-// THEME: Colors
-
-//$primary-color: #ffddc9; //peach
-$primary-color: #fee8d3; //cream
-//$primary-color-lt: #fff8f0;
-$primary-color-lt: #fff6ec;
-$primary-color-lt: #faf4ef;
-$primary-color-dk: #ff9c93;
-$neutral-color: #fbf7f4;
-$neutral-color-lt: #fbfafa;
-
-$text-color: #0e0e0e;
-$body-color: white;
-$highlight-color: #ffd7c0;
-$border: 1px dotted rgba($text-color, 1);
-
-.bg-neutral-lt { background-color: $neutral-color-lt; }
-.bg-neutral { background-color: $neutral-color; }
-.bg-primary-lt { background-color: $primary-color-lt; }
-.bg-primary { background-color: $primary-color; }
-.bg-dark { background-color: $text-color; }
-.border-top { border-top: $border;}
-.text-reverse { color: #ffffff;}
-
-
-
-// THEME: Type
-$serif: 'Canela Web';
-$sans-serif: 'Basis Grotesque Web';
-$sans-serif-display: 'Basis Grotesque Black Web';
-
-// VARIABLES: Layout
 $vspace-unit: 3rem;
 $vertical-rhythm-base: $vspace-unit;
 $vertical-rhythm-relaxed: $vspace-unit * 2.4;
 $vertical-rhythm-tight: $vspace-unit/2;
 
-// VARIABLES: Typography
-%serif { font-family: 'Canela Web'; font-weight: 100; font-style: normal; font-stretch: normal; }
+
+// --------------------------------------------------------- /
+// Variables: Colors and borders
+// --------------------------------------------------------- /
+
+//$primary-color: #ffddc9; //peach
+//$primary-color-lt: #fff8f0;
+//$primary-color-lt: #fff6ec;
+
+$primary-color: #fee8d3; //cream
+$primary-color-lt: #faf4ef;
+$primary-color-dk: #ff9c93;
+$neutral-color: #fbf7f4;
+$neutral-color-lt: #fbfafa;
+$text-color: #0e0e0e;
+$body-color: white;
+$highlight-color: #ffd7c0;
+$border: 1px dotted rgba($text-color, 1);
 
 
-// Major Third Type Scale
+// --------------------------------------------------------- /
+// Variables: Type scale (major third)
+// --------------------------------------------------------- /
+
 $text-size-1: 4.768rem;
 $text-size-2: 3.815rem;
 $text-size-3: 3.052rem;
@@ -118,10 +119,146 @@ $text-size-8: 1rem;
 $text-size-9: 0.8rem;
 
 
+// --------------------------------------------------------- *
+//
+//
+// 03   BASE
+//      ~ Global base styles: type and color
+//
+//
+// --------------------------------------------------------- *
 
-// -----------------------------------------------------
 
-// Typography Globals
+// --------------------------------------------------------- /
+// Web fonts! @font-face declarations
+// --------------------------------------------------------- /
+
+@font-face {
+  font-family: 'Basis Grotesque Web';
+  src: url('fonts/basis-grotesque-regular.eot');
+  src: url('fonts/basis-grotesque-regular.eot?#iefix') format('embedded-opentype'),
+       url('fonts/basis-grotesque-regular.woff2') format('woff2'),
+       url('fonts/basis-grotesque-regular.woff') format('woff'),
+       url('fonts/basis-grotesque-regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Canela Web';
+  src: url('fonts/Canela-Thin-Web.woff2') format('woff2'),
+  url('fonts/Canela-Thin-Web.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+}
+
+/*
+@font-face {
+  font-family: 'Basis Grotesque Black Web';
+  src: url('fonts/basis-grotesque-black-italic.eot');
+  src: url('fonts/basis-grotesque-black-italic.eot?#iefix') format('embedded-opentype'),
+       url('fonts/basis-grotesque-black-italic.woff2') format('woff2'),
+       url('fonts/basis-grotesque-black-italic.woff') format('woff'),
+       url('fonts/basis-grotesque-black-italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+*/
+
+$serif: 'Canela Web';
+$sans-serif: 'Basis Grotesque Web';
+%serif { font-family: 'Canela Web'; font-weight: 100; font-style: normal; font-stretch: normal; }
+
+
+// --------------------------------------------------------- /
+// Theme: Typography
+// --------------------------------------------------------- /
+
+
+// Smaller screens: type levels are flattened
+h1, h2, h3, .text-l { font-size: $text-size-4; }
+.text-xl { font-size: $text-size-2; }
+.text-m { font-size: $text-size-4; }
+.text-s, p { font-size: $text-size-7; }
+.text-xs { font-size: $text-size-7; }
+
+// Larger screens: type levels have more variance
+.text-xl { @include breakpoint(medium) { font-size: $text-size-1; } }
+.text-l, h1 { @include breakpoint(medium) { font-size: $text-size-2; } }
+.text-m { @include breakpoint(medium) { font-size: $text-size-3; } }
+.text-s, p{ @include breakpoint(medium) { font-size: $text-size-6; } }
+
+h1, h2, h3, h4, .text-xl, .text-l { line-height: 1.22; }
+
+h1 {
+  @extend %serif;
+  margin-bottom: $vertical-rhythm-tight;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+  line-height: 1.3;
+
+  &.caption {
+    border-top: 1px dashed rgba($text-color, 30%);
+    padding-top: $vertical-rhythm-tight;
+    margin-top: $vertical-rhythm-base;
+    font-size: $text-size-8;
+    @include breakpoint(medium) { font-size: $text-size-7; }
+  }
+
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: $border;
+
+  &:hover {
+    background-color: $highlight-color;
+    color: $text-color;
+    border-bottom: none;
+  }
+
+}
+
+// Text helper classes
+.text-sans { font-family: $sans-serif; }
+.text-serif { @extend %serif; }
+.text-indent { text-indent: $vspace-unit*.75;}
+.text-bottom-margin { margin-bottom: $vertical-rhythm-relaxed; }
+.uppercase { text-transform: uppercase; }
+.text-center { text-align: center; }
+.text-center-responsive {
+  text-align: left;
+  @include breakpoint(medium) { text-align: center; } // only centered on large screens
+}
+
+
+// --------------------------------------------------------- /
+// Theme: Color and styling
+// --------------------------------------------------------- /
+
+.bg-neutral-lt { background-color: $neutral-color-lt; }
+.bg-neutral { background-color: $neutral-color; }
+.bg-primary-lt { background-color: $primary-color-lt; }
+.bg-primary { background-color: $primary-color; }
+.bg-dark { background-color: $text-color; }
+.text-reverse { color: $body-color; }
+.border-top { border-top: $border; }
+
+
+
+// --------------------------------------------------------- *
+//
+//
+// 04   LAYOUT
+//      ~ Page structure + header, footer, etc
+//
+//
+// --------------------------------------------------------- *
 
 html {
   font-size: 14px;
@@ -135,80 +272,6 @@ body {
   font-kerning: normal;
 }
 
-// Text sizes
-
-h1, h2, h3,
-.text-l {
-  font-size: $text-size-4;
-  line-height: 1.22;
-}
-
-.text-xl { font-size: $text-size-2; line-height: 1.22; }
-.text-xl { @include breakpoint(medium) { font-size: $text-size-1; } }
-
-.text-l, h1 { @include breakpoint(medium) { font-size: $text-size-2; } }
-
-.text-m { font-size: $text-size-4; }
-.text-m { @include breakpoint(medium) { font-size: $text-size-3; } }
-
-.text-s, p { font-size: $text-size-7; }
-.text-s, p{ @include breakpoint(medium) { font-size: $text-size-6; } }
-
-.text-xs { font-size: $text-size-7; }
-
-
-
-h1 {
-  @extend %serif;
-  margin-bottom: $vertical-rhythm-tight;
-}
-
-p {
-  margin: 0;
-  padding: 0;
-  line-height: 1.3;
-
-  &.caption {
-    border-top: 1px dotted $text-color;
-    padding-top: $vertical-rhythm-tight;
-    margin-top: $vertical-rhythm-base;
-    font-size: $text-size-7;
-  }
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-  border-bottom: 1px dotted rgba($text-color, 1);
-
-  &:hover {
-    background-color: $highlight-color;
-    color: $text-color;
-    border-bottom: none;
-  }
-
-  @include breakpoint(medium) { border-bottom: $border; }
-
-}
-
-// Text helper classes
-.text-sans { font-family: $sans-serif; }
-.text-sans-display { font-family: $sans-serif-display; }
-.text-serif { @extend %serif; }
-.text-indent { text-indent: $vspace-unit*.75;}
-.text-bottom-margin { margin-bottom: $vertical-rhythm-relaxed; }
-.uppercase { text-transform: uppercase; }
-.text-center { text-align: center;}
-.text-center-responsive {
-  text-align: left;
-  @include breakpoint(medium) { text-align: center; }
-}
-
-
-// -----------------------------------------------------
-// Structure
-
-
 header, section, footer {
   padding: 0;
   margin: 0 auto;
@@ -216,7 +279,9 @@ header, section, footer {
   padding-bottom: $vertical-rhythm-tight;
 }
 
-
+// --------------------------------------------------------- /
+// Layout: Container widths
+// --------------------------------------------------------- /
 
 .wrapper-full,
 .wrapper-wide,
@@ -228,52 +293,16 @@ header, section, footer {
 
 }
 
-
-.vspace-relaxed,
-.vspace-tight {
-  padding-top: $vertical-rhythm-base;
-  padding-bottom: $vertical-rhythm-base;
-}
-
-.vspace-relaxed-top { padding-top: $vertical-rhythm-base; }
-.vspace-relaxed-bottom { padding-bottom: $vertical-rhythm-base; }
-
-.vspace-clear { padding-top: 0; padding-bottom: 0;}
-
-
-
-.vspace-relaxed {
-  @include breakpoint(medium) { padding-top: $vertical-rhythm-relaxed; padding-bottom: $vertical-rhythm-relaxed; }
-}
-
-.vspace-relaxed-top {
-  @include breakpoint(medium) { padding-top: $vertical-rhythm-relaxed; }
-}
-
-.vspace-relaxed-bottom {
-  @include breakpoint(medium) { padding-bottom: $vertical-rhythm-relaxed; }
-}
-
-.wrapper-wide {
-  @include breakpoint(medium) { padding-left: 8%; padding-right: 8%;}
-}
-
-.wrapper-normal {
-  @include breakpoint(medium) { padding-left: 16%; padding-right: 16%; }
-}
-
+.wrapper-wide { @include breakpoint(medium) { padding-left: 8%; padding-right: 8%;} }
+.wrapper-normal { @include breakpoint(medium) { padding-left: 16%; padding-right: 16%; } }
 .wrapper-narrow {
   @include breakpoint(medium) { padding-left: 21%; padding-right: 21%; }
   @include breakpoint(large) { padding-left: 27%; padding-right: 27%; }
 }
 
-
-
 .wrapper-img {
   padding-bottom: $vertical-rhythm-base;
-  //padding-top: $vertical-rhythm-base;
-  @include breakpoint(medium) {margin: auto;
-}
+  @include breakpoint(medium) { margin: auto; }
 
   img {
     display: block;
@@ -290,7 +319,26 @@ header, section, footer {
 
 }
 
+// --------------------------------------------------------- /
+// Layout: Vertical spacing (padding only)
+// --------------------------------------------------------- /
 
-// Global Helper Classes
+.vspace-relaxed, .vspace-tight {
+  padding-top: $vertical-rhythm-base; padding-bottom: $vertical-rhythm-base;
+}
+.vspace-relaxed-top { padding-top: $vertical-rhythm-base; }
+.vspace-relaxed-bottom { padding-bottom: $vertical-rhythm-base; }
+.vspace-clear { padding-top: 0; padding-bottom: 0;}
 
-.visiblyhidden { position: absolute; overflow: hidden; clip: rect(0 0 0 0); height: 1px; width: 1px; margin: -1px; padding: 0; border: 0; }
+// For larger screens
+.vspace-relaxed {
+  @include breakpoint(medium) { padding-top: $vertical-rhythm-relaxed; padding-bottom: $vertical-rhythm-relaxed; }
+}
+
+.vspace-relaxed-top {
+  @include breakpoint(medium) { padding-top: $vertical-rhythm-relaxed; }
+}
+
+.vspace-relaxed-bottom {
+  @include breakpoint(medium) { padding-bottom: $vertical-rhythm-relaxed; }
+}

@@ -1,15 +1,28 @@
+/*
+ *
+ * PORTFOLIO STYLING / 2021
+ *
+ * Notes!
+ * ~ No partials because this is a temp one-pager design
+ * ~ SCSS structure will map to @imports when ready
+ *
+*/
+.visiblyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
 @font-face {
   font-family: "Basis Grotesque Web";
   src: url("fonts/basis-grotesque-regular.eot");
   src: url("fonts/basis-grotesque-regular.eot?#iefix") format("embedded-opentype"), url("fonts/basis-grotesque-regular.woff2") format("woff2"), url("fonts/basis-grotesque-regular.woff") format("woff"), url("fonts/basis-grotesque-regular.ttf") format("truetype");
   font-weight: 400;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Basis Grotesque Black Web";
-  src: url("fonts/basis-grotesque-black-italic.eot");
-  src: url("fonts/basis-grotesque-black-italic.eot?#iefix") format("embedded-opentype"), url("fonts/basis-grotesque-black-italic.woff2") format("woff2"), url("fonts/basis-grotesque-black-italic.woff") format("woff"), url("fonts/basis-grotesque-black-italic.ttf") format("truetype");
-  font-weight: normal;
   font-style: normal;
 }
 @font-face {
@@ -19,34 +32,18 @@
   font-style: normal;
   font-stretch: normal;
 }
-.bg-neutral-lt {
-  background-color: #fbfafa;
+/*
+@font-face {
+  font-family: 'Basis Grotesque Black Web';
+  src: url('fonts/basis-grotesque-black-italic.eot');
+  src: url('fonts/basis-grotesque-black-italic.eot?#iefix') format('embedded-opentype'),
+       url('fonts/basis-grotesque-black-italic.woff2') format('woff2'),
+       url('fonts/basis-grotesque-black-italic.woff') format('woff'),
+       url('fonts/basis-grotesque-black-italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
-
-.bg-neutral {
-  background-color: #fbf7f4;
-}
-
-.bg-primary-lt {
-  background-color: #faf4ef;
-}
-
-.bg-primary {
-  background-color: #fee8d3;
-}
-
-.bg-dark {
-  background-color: #0e0e0e;
-}
-
-.border-top {
-  border-top: 1px dotted #0e0e0e;
-}
-
-.text-reverse {
-  color: #ffffff;
-}
-
+*/
 .text-serif, h1 {
   font-family: "Canela Web";
   font-weight: 100;
@@ -54,31 +51,24 @@
   font-stretch: normal;
 }
 
-html {
-  font-size: 14px;
-}
-@media (min-width: 44em) {
-  html {
-    font-size: 16px;
-  }
-}
-
-body {
-  background-color: white;
-  color: #0e0e0e;
-  font-family: "Basis Grotesque Web";
-  font-kerning: normal;
-}
-
-h1, h2, h3,
-.text-l {
+h1, h2, h3, .text-l {
   font-size: 2.441rem;
-  line-height: 1.22;
 }
 
 .text-xl {
   font-size: 3.815rem;
-  line-height: 1.22;
+}
+
+.text-m {
+  font-size: 2.441rem;
+}
+
+.text-s, p {
+  font-size: 1.25rem;
+}
+
+.text-xs {
+  font-size: 1.25rem;
 }
 
 @media (min-width: 44em) {
@@ -93,18 +83,10 @@ h1, h2, h3,
   }
 }
 
-.text-m {
-  font-size: 2.441rem;
-}
-
 @media (min-width: 44em) {
   .text-m {
     font-size: 3.052rem;
   }
-}
-
-.text-s, p {
-  font-size: 1.25rem;
 }
 
 @media (min-width: 44em) {
@@ -113,8 +95,8 @@ h1, h2, h3,
   }
 }
 
-.text-xs {
-  font-size: 1.25rem;
+h1, h2, h3, h4, .text-xl, .text-l {
+  line-height: 1.22;
 }
 
 h1 {
@@ -127,10 +109,15 @@ p {
   line-height: 1.3;
 }
 p.caption {
-  border-top: 1px dotted #0e0e0e;
+  border-top: 1px dashed rgba(14, 14, 14, 0.3);
   padding-top: 1.5rem;
   margin-top: 3rem;
-  font-size: 1.25rem;
+  font-size: 1rem;
+}
+@media (min-width: 44em) {
+  p.caption {
+    font-size: 1.25rem;
+  }
 }
 
 a {
@@ -143,18 +130,9 @@ a:hover {
   color: #0e0e0e;
   border-bottom: none;
 }
-@media (min-width: 44em) {
-  a {
-    border-bottom: 1px dotted #0e0e0e;
-  }
-}
 
 .text-sans {
   font-family: "Basis Grotesque Web";
-}
-
-.text-sans-display {
-  font-family: "Basis Grotesque Black Web";
 }
 
 .text-indent {
@@ -182,6 +160,50 @@ a:hover {
   }
 }
 
+.bg-neutral-lt {
+  background-color: #fbfafa;
+}
+
+.bg-neutral {
+  background-color: #fbf7f4;
+}
+
+.bg-primary-lt {
+  background-color: #faf4ef;
+}
+
+.bg-primary {
+  background-color: #fee8d3;
+}
+
+.bg-dark {
+  background-color: #0e0e0e;
+}
+
+.text-reverse {
+  color: white;
+}
+
+.border-top {
+  border-top: 1px dotted #0e0e0e;
+}
+
+html {
+  font-size: 14px;
+}
+@media (min-width: 44em) {
+  html {
+    font-size: 16px;
+  }
+}
+
+body {
+  background-color: white;
+  color: #0e0e0e;
+  font-family: "Basis Grotesque Web";
+  font-kerning: normal;
+}
+
 header, section, footer {
   padding: 0;
   margin: 0 auto;
@@ -196,44 +218,6 @@ header, section, footer {
   padding: 3rem 1.5rem;
   margin: 0 auto;
   max-width: 80rem;
-}
-
-.vspace-relaxed,
-.vspace-tight {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-}
-
-.vspace-relaxed-top {
-  padding-top: 3rem;
-}
-
-.vspace-relaxed-bottom {
-  padding-bottom: 3rem;
-}
-
-.vspace-clear {
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-@media (min-width: 44em) {
-  .vspace-relaxed {
-    padding-top: 7.2rem;
-    padding-bottom: 7.2rem;
-  }
-}
-
-@media (min-width: 44em) {
-  .vspace-relaxed-top {
-    padding-top: 7.2rem;
-  }
-}
-
-@media (min-width: 44em) {
-  .vspace-relaxed-bottom {
-    padding-bottom: 7.2rem;
-  }
 }
 
 @media (min-width: 44em) {
@@ -292,15 +276,41 @@ header, section, footer {
   }
 }
 
-.visiblyhidden {
-  position: absolute;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  width: 1px;
-  margin: -1px;
-  padding: 0;
-  border: 0;
+.vspace-relaxed, .vspace-tight {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.vspace-relaxed-top {
+  padding-top: 3rem;
+}
+
+.vspace-relaxed-bottom {
+  padding-bottom: 3rem;
+}
+
+.vspace-clear {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+@media (min-width: 44em) {
+  .vspace-relaxed {
+    padding-top: 7.2rem;
+    padding-bottom: 7.2rem;
+  }
+}
+
+@media (min-width: 44em) {
+  .vspace-relaxed-top {
+    padding-top: 7.2rem;
+  }
+}
+
+@media (min-width: 44em) {
+  .vspace-relaxed-bottom {
+    padding-bottom: 7.2rem;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */
