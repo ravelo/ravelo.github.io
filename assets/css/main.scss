@@ -42,12 +42,16 @@ font-stretch: normal;
 
 @mixin breakpoint($point) {
 
-  @if $point == large {
+  @if $point == extralarge {
       @media (min-width: 80em) { @content ; }
   }
 
+  @else if $point == large {
+       @media (min-width: 64em) { @content ; }
+  }
+
   @else if $point == medium {
-       @media (min-width: 48em) { @content ; }
+       @media (min-width: 44em) { @content ; }
   }
 
   @else if $point == small {
@@ -67,13 +71,15 @@ font-stretch: normal;
 $primary-color: #fee8d3; //cream
 //$primary-color-lt: #fff8f0;
 $primary-color-lt: #fff6ec;
+$primary-color-lt: #faf4ef;
 $primary-color-dk: #ff9c93;
 $neutral-color: #fbf7f4;
 $neutral-color-lt: #fbfafa;
+
 $text-color: #0e0e0e;
 $body-color: white;
 $highlight-color: #ffd7c0;
-$border: 2px dotted rgba($text-color, 1);
+$border: 1px dotted rgba($text-color, 1);
 
 .bg-neutral-lt { background-color: $neutral-color-lt; }
 .bg-neutral { background-color: $neutral-color; }
@@ -99,14 +105,18 @@ $vertical-rhythm-tight: $vspace-unit/2;
 // VARIABLES: Typography
 %serif { font-family: 'Canela Web'; font-weight: 100; font-style: normal; font-stretch: normal; }
 
-$text-size-0: 7.993rem;
-$text-size-1: 5.653rem;
-$text-size-2: 3.998rem;
-$text-size-3: 2.827rem;
-$text-size-4: 1.999rem;
-$text-size-5: 1.414rem;
-$text-size-6: 1rem;
-$text-size-7: 0.707rem;
+
+// Major Third Type Scale
+$text-size-1: 4.768rem;
+$text-size-2: 3.815rem;
+$text-size-3: 3.052rem;
+$text-size-4: 2.441rem;
+$text-size-5: 1.953rem;
+$text-size-6: 1.563rem;
+$text-size-7: 1.25rem;
+$text-size-8: 1rem;
+$text-size-9: 0.8rem;
+
 
 
 // -----------------------------------------------------
@@ -128,29 +138,23 @@ body {
 // Text sizes
 
 h1, h2, h3,
-.text-xxl,
-.text-xl,
 .text-l {
-  font-size: $text-size-3;
-  line-height: 1.24;
-  @include breakpoint(small) { font-size: $text-size-2; }
+  font-size: $text-size-4;
+  line-height: 1.22;
 }
 
-.text-xxl {
-  @include breakpoint(medium) { font-size: $text-size-0; }
-}
+.text-xl { font-size: $text-size-2; line-height: 1.22; }
+.text-xl { @include breakpoint(medium) { font-size: $text-size-1; } }
 
-.text-xl {
-  @include breakpoint(medium) { font-size: $text-size-1; }
-}
+.text-l, h1 { @include breakpoint(medium) { font-size: $text-size-2; } }
 
-.text-l, h1 {
-  @include breakpoint(medium) { font-size: $text-size-2; }
-}
+.text-m { font-size: $text-size-4; }
+.text-m { @include breakpoint(medium) { font-size: $text-size-3; } }
 
-.text-m { font-size: $text-size-3; }
-.text-s { font-size: $text-size-5; }
-.text-xs { font-size: $text-size-6; }
+.text-s, p { font-size: $text-size-7; }
+.text-s, p{ @include breakpoint(medium) { font-size: $text-size-6; } }
+
+.text-xs { font-size: $text-size-7; }
 
 
 
@@ -162,8 +166,14 @@ h1 {
 p {
   margin: 0;
   padding: 0;
-  font-size: $text-size-5;
   line-height: 1.3;
+
+  &.caption {
+    border-top: 1px dotted $text-color;
+    padding-top: $vertical-rhythm-tight;
+    margin-top: $vertical-rhythm-base;
+    font-size: $text-size-7;
+  }
 }
 
 a {
@@ -253,31 +263,31 @@ header, section, footer {
 }
 
 .wrapper-narrow {
-  @include breakpoint(medium) { padding-left: 22%; padding-right: 22%; }
-  @include breakpoint(large) { padding-left: 28%; padding-right: 28%; }
+  @include breakpoint(medium) { padding-left: 21%; padding-right: 21%; }
+  @include breakpoint(large) { padding-left: 27%; padding-right: 27%; }
 }
 
 
-section img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: $vertical-rhythm-base;
-
-  &.illo {
-    width: 90%;
-    @include breakpoint(medium) { width: 54%; }
-  }
-  &.stretch { width: 100%; }
-  &.blend { mix-blend-mode: darken; }
-}
 
 .wrapper-img {
-  padding: $vertical-rhythm-base 0;
-  padding-top: 0;
-  margin-left: $vertical-rhythm-tight;
-  margin-right: $vertical-rhythm-tight;
-  @include breakpoint(medium) {margin: auto; }
+  padding-bottom: $vertical-rhythm-base;
+  //padding-top: $vertical-rhythm-base;
+  @include breakpoint(medium) {margin: auto;
+}
+
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: $vertical-rhythm-base;
+  }
+}
+
+.illo {
+  width: 100%;
+  @include breakpoint(medium) { width: 80%; }
+  @include breakpoint(large) { width: 60%; }
+
 }
 
 
