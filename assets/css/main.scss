@@ -1,6 +1,6 @@
 /*
  *
- * PORTFOLIO STYLING / 2021
+ * PORTFOLIO STYLING / 2022
  *
  * Notes!
  * ~ No partials because this is a temp one-pager design
@@ -79,44 +79,44 @@
 // Variables: Vertical spacing
 // --------------------------------------------------------- /
 
-$vspace-unit: 3rem;
+$vspace-unit: 4rem;
 $vertical-rhythm-base: $vspace-unit;
-$vertical-rhythm-relaxed: $vspace-unit * 2.4;
-$vertical-rhythm-tight: $vspace-unit/2;
+$vertical-rhythm-quarter: $vspace-unit * 0.2;
+$vertical-rhythm-half: $vspace-unit * 0.6;
+$vertical-rhythm-double: $vspace-unit * 1.9;
+$vertical-rhythm-triple: $vspace-unit * 2.8;
+
 
 
 // --------------------------------------------------------- /
 // Variables: Colors and borders
 // --------------------------------------------------------- /
 
-//$primary-color: #ffddc9; //peach
-//$primary-color-lt: #fff8f0;
-//$primary-color-lt: #fff6ec;
-
-$primary-color: #fee8d3; //cream
-$primary-color-lt: #faf4ef;
-$primary-color-dk: #ff9c93;
-$neutral-color: #fbf7f4;
-$neutral-color-lt: #fbfafa;
-$text-color: #0e0e0e;
-$body-color: white;
-$highlight-color: #ffd7c0;
-$border: 1px dotted rgba($text-color, 1);
+$primary-color: #000000;
+$surface-color: #ffffff;
+$surface-color-reverse: #000000;
+$text-color: #000000;
+$text-color-reverse: #ffffff;
+$highlight-color: blue;
+$border: 0.21rem solid rgba($text-color, 1);
+$border-reverse: 0.21rem solid rbga($text-color-reverse, 1);
 
 
 // --------------------------------------------------------- /
 // Variables: Type scale (major third)
 // --------------------------------------------------------- /
 
-$text-size-1: 4.768rem;
-$text-size-2: 3.815rem;
-$text-size-3: 3.052rem;
-$text-size-4: 2.441rem;
-$text-size-5: 1.953rem;
-$text-size-6: 1.563rem;
-$text-size-7: 1.25rem;
-$text-size-8: 1rem;
-$text-size-9: 0.8rem;
+$text-size-1: 5.96rem;
+$text-size-2: 4.768rem;
+$text-size-3: 3.815rem;
+$text-size-4: 3.052rem;
+$text-size-5: 2.441rem;
+$text-size-6: 1.953rem;
+$text-size-7: 1.563rem;
+$text-size-8: 1.25rem;
+$text-size-9: 1rem;
+$text-size-10: 0.8rem; //caption
+$indent: $vspace-unit*.75;
 
 
 // --------------------------------------------------------- *
@@ -145,30 +145,53 @@ $text-size-9: 0.8rem;
 }
 
 @font-face {
-  font-family: 'Canela Web';
-  src: url('fonts/Canela-Thin-Web.woff2') format('woff2'),
-  url('fonts/Canela-Thin-Web.woff') format('woff');
-  font-weight: normal;
+  font-family: 'GT America Expanded Medium';
+  src: url('fonts/GT-America-Expanded-Medium.woff2') format('woff2'),
+       url('fonts/GT-America-Expanded-Medium.woff') format('woff'),;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Self Modern';
+  src:  url('fonts/self-modern_regular_web.woff2') format('woff2'),
+        url('fonts/self-modern_regular_web.woff') format('woff');
+  font-weight: 400;
   font-style: normal;
   font-stretch: normal;
 }
 
-/*
 @font-face {
-  font-family: 'Basis Grotesque Black Web';
-  src: url('fonts/basis-grotesque-black-italic.eot');
-  src: url('fonts/basis-grotesque-black-italic.eot?#iefix') format('embedded-opentype'),
-       url('fonts/basis-grotesque-black-italic.woff2') format('woff2'),
-       url('fonts/basis-grotesque-black-italic.woff') format('woff'),
-       url('fonts/basis-grotesque-black-italic.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
+  font-family: 'Self Modern';
+  src:  url('fonts/self-modern_italic_web.woff2') format('woff2'),
+        url('fonts/self-modern_italic_web.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
+  font-stretch: normal;
 }
-*/
 
-$serif: 'Canela Web';
+
+$serif: 'Self Modern';
 $sans-serif: 'Basis Grotesque Web';
-%serif { font-family: 'Canela Web'; font-weight: 100; font-style: normal; font-stretch: normal; }
+$display: 'GT America Expanded Medium';
+
+%serif {
+  font-family: 'Self Modern';
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: -0.1rem;
+}
+
+%display {
+  font-family: $display;
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: 0rem;
+  font-feature-settings: 'ss05';
+
+}
 
 
 // --------------------------------------------------------- /
@@ -176,59 +199,11 @@ $sans-serif: 'Basis Grotesque Web';
 // --------------------------------------------------------- /
 
 
-// Smaller screens: type levels are flattened
-h1, h2, h3, .text-l { font-size: $text-size-4; }
-.text-xl { font-size: $text-size-2; }
-.text-m { font-size: $text-size-4; }
-.text-s, p { font-size: $text-size-7; }
-.text-xs { font-size: $text-size-7; }
-
-// Larger screens: type levels have more variance
-.text-xl { @include breakpoint(medium) { font-size: $text-size-1; } }
-.text-l, h1 { @include breakpoint(medium) { font-size: $text-size-2; } }
-.text-m { @include breakpoint(medium) { font-size: $text-size-3; } }
-.text-s, p{ @include breakpoint(medium) { font-size: $text-size-6; } }
-
-h1, h2, h3, h4, .text-xl, .text-l { line-height: 1.22; }
-
-h1 {
-  @extend %serif;
-  margin-bottom: $vertical-rhythm-tight;
-}
-
-p {
-  margin: 0;
-  padding: 0;
-  line-height: 1.3;
-
-  &.caption {
-    border-top: 1px dashed rgba($text-color, 30%);
-    padding-top: $vertical-rhythm-tight;
-    margin-top: $vertical-rhythm-base;
-    font-size: $text-size-8;
-    @include breakpoint(medium) { font-size: $text-size-7; }
-  }
-
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-  border-bottom: $border;
-
-  &:hover {
-    background-color: $highlight-color;
-    color: $text-color;
-    border-bottom: none;
-  }
-
-}
-
-// Text helper classes
+// Global text helper classes
 .text-sans { font-family: $sans-serif; }
 .text-serif { @extend %serif; }
-.text-indent { text-indent: $vspace-unit*.75;}
-.text-bottom-margin { margin-bottom: $vertical-rhythm-relaxed; }
+.text-indent { text-indent: $indent;}
+.no-wrap { white-space: nowrap; }
 .uppercase { text-transform: uppercase; }
 .text-center { text-align: center; }
 .text-center-responsive {
@@ -237,17 +212,165 @@ a {
 }
 
 
+// Smaller screens: type levels are flattened
+h1, h2, h3, .text-l { font-size: $text-size-4; }
+.text-xl { font-size: $text-size-2; }
+.text-m { font-size: $text-size-5; }
+.text-s, p, ul { font-size: $text-size-6; }
+.text-xs { font-size: $text-size-5; }
+.text-xxs {font-size: $text-size-9;}
+
+// Larger screens: type levels have more variance
+.text-xl, h1 { @include breakpoint(medium) { font-size: $text-size-1; } }
+.text-l { @include breakpoint(medium) { font-size: $text-size-2; } }
+.text-m { @include breakpoint(medium) { font-size: $text-size-3; } }
+.text-s { @include breakpoint(medium) { font-size: $text-size-4; } }
+.text-xxs { @include breakpoint(medium) { font-size: $text-size-8; } }
+p, ul { @include breakpoint(medium) { font-size: $text-size-5; } }
+
+h1, h2, h3, h4, .text-xl, .text-l { line-height: 1.22; }
+
+h1 {
+  @extend %display;
+  margin-bottom: $vertical-rhythm-half;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+
+  &.text-m { line-height: 1.05; }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: $border;
+
+  &:hover {
+    background-color: $surface-color-reverse;
+    color: $text-color-reverse;
+  }
+}
+
+
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+
+  &.simple {
+    margin-left: $indent;
+
+    li a { border-bottom: none; }
+  }
+
+  &.horizontal {
+    display: inline-block;
+
+    li {
+      float:left;
+      margin-right: 0.25rem;
+      margin-bottom: 0.75rem;
+    }
+  }
+
+}
+
+
+// Special style: hyperlinks with oval outlines
+a.outlined {
+  display:inline-block;
+  border: 0.175rem solid $text-color;
+  @extend %serif;
+  font-style: italic;
+  border-radius: 15rem;
+  padding: 0.2rem 1.2rem 0.4rem;
+
+  @include breakpoint(medium) {
+    border: 0.215rem solid $text-color;
+  }
+
+  &.break {
+    margin-right: 0;
+    @include breakpoint(medium) { margin-right:10rem; }
+  }
+}
+
+// Special style: show+hide info button
+button {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background-color: inherit;
+  border-bottom: $border;
+
+  &:hover, &.active {
+    cursor: pointer;
+    background-color: $surface-color-reverse;
+    color: $text-color-reverse;
+  }
+}
+
+
+
 // --------------------------------------------------------- /
 // Theme: Color and styling
 // --------------------------------------------------------- /
 
-.bg-neutral-lt { background-color: $neutral-color-lt; }
-.bg-neutral { background-color: $neutral-color; }
-.bg-primary-lt { background-color: $primary-color-lt; }
-.bg-primary { background-color: $primary-color; }
-.bg-dark { background-color: $text-color; }
-.text-reverse { color: $body-color; }
-.border-top { border-top: $border; }
+
+.bg-primary { background-color: $surface-color; }
+.bg-dark { background-color: $surface-color-reverse; color: $text-color-reverse; }
+.text-reverse { color: $text-color-reverse; }
+.text-muted { color: rgba($text-color-reverse, 0.7); }
+
+
+
+
+// --------------------------------------------------------- /
+// Novelty: Marquee effect
+// --------------------------------------------------------- /
+
+$marquee-speed: 30s;
+$marquee-x-pos-start: 90%;
+$marquee-x-pos-end: -100%;
+
+
+p.marquee-content {
+  color: rgba($text-color-reverse, 0.7);
+
+  @include breakpoint(medium) {
+    -moz-animation: marquee $marquee-speed linear infinite;
+    -webkit-animation: marquee $marquee-speed linear infinite;
+    animation: marquee $marquee-speed linear infinite;
+  }
+}
+
+
+@-moz-keyframes marquee {
+  0% { transform: translateX($marquee-x-pos-start); }
+  100% { transform: translateX($marquee-x-pos-end); }
+}
+
+@-webkit-keyframes marquee {
+  0% { transform: translateX($marquee-x-pos-start); }
+  100% { transform: translateX($marquee-x-pos-end); }
+}
+
+@keyframes marquee {
+  0% {
+    -moz-transform: translateX($marquee-x-pos-start);
+    -webkit-transform: translateX($marquee-x-pos-start);
+    transform: translateX($marquee-x-pos-start);
+  }
+  100% {
+    -moz-transform: translateX($marquee-x-pos-end);
+    -webkit-transform: translateX($marquee-x-pos-end);
+    transform: translateX($marquee-x-pos-end);
+  }
+}
 
 
 
@@ -266,79 +389,109 @@ html {
 }
 
 body {
-  background-color: $body-color;
+  background-color: $surface-color;
   color: $text-color;
   font-family: $sans-serif;
   font-kerning: normal;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
 }
 
-header, section, footer {
-  padding: 0;
-  margin: 0 auto;
-  padding-top: $vertical-rhythm-tight;
-  padding-bottom: $vertical-rhythm-tight;
-}
 
 // --------------------------------------------------------- /
-// Layout: Container widths
+// Layout: Container props & vertical rhythm
 // --------------------------------------------------------- /
 
-.wrapper-full,
-.wrapper-wide,
-.wrapper-normal,
-.wrapper-narrow {
-  padding: $vertical-rhythm-base $vertical-rhythm-tight;
+.vspace-clear { padding-top: 0; padding-bottom: 0;}
+.vspace-base { padding: $vertical-rhythm-base 0; }
+.vspace-quarter { padding: $vertical-rhythm-quarter 0; }
+.vspace-half { padding: $vertical-rhythm-half 0; }
+.vspace-double { padding: $vertical-rhythm-double 0; }
+
+
+.vspace-triple {
+  padding: $vertical-rhythm-triple*0.75 0;
+  @include breakpoint(medium) { padding: $vertical-rhythm-triple 0; }
+}
+
+.vspace-base-top { padding-top: $vertical-rhythm-base; }
+.vspace-base-bottom { padding-bottom: $vertical-rhythm-base; }
+.vspace-quarter-top { padding-top: $vertical-rhythm-quarter; }
+.vspace-quarter-bottom { padding-bottom: $vertical-rhythm-quarter; }
+.vspace-half-top { padding-top: $vertical-rhythm-half; }
+.vspace-half-bottom { padding-bottom: $vertical-rhythm-half; }
+
+
+.vspace-double-top {
+  padding-top: $vertical-rhythm-double*0.75;
+  @include breakpoint(medium) { padding-top: $vertical-rhythm-double; }
+}
+
+.vspace-double-bottom {
+  padding-bottom: $vertical-rhythm-double*0.75;
+  @include breakpoint(medium) { padding-bottom: $vertical-rhythm-double; }
+}
+
+.vspace-triple-top {
+  padding-top: $vertical-rhythm-triple*0.75;
+  @include breakpoint(medium) { padding-top: $vertical-rhythm-triple; }
+}
+
+.vspace-triple-bottom {
+  padding-bottom: $vertical-rhythm-triple*0.75;
+  @include breakpoint(medium) { padding-bottom: $vertical-rhythm-triple;  }
+}
+
+header, section, footer, .wrapper-large {
+  padding: $vertical-rhythm-half $vertical-rhythm-quarter;
   margin: 0 auto;
-  max-width: 80rem;
 
+  @include breakpoint(medium) { padding: $vertical-rhythm-half; }
 }
 
-.wrapper-wide { @include breakpoint(medium) { padding-left: 8%; padding-right: 8%;} }
-.wrapper-normal { @include breakpoint(medium) { padding-left: 16%; padding-right: 16%; } }
-.wrapper-narrow {
-  @include breakpoint(medium) { padding-left: 21%; padding-right: 21%; }
-  @include breakpoint(large) { padding-left: 27%; padding-right: 27%; }
+.wrapper-large {
+  margin: 0 auto;
+  //@include breakpoint(large) { width: 52rem; }
 }
+
+.wrapper-medium {
+  margin: 0 auto;
+  @include breakpoint(large) { width: 68rem; }
+}
+
+.wrapper-small {
+  margin: 0 auto;
+  @include breakpoint(large) { width: 52rem; }
+}
+
+
 
 .wrapper-img {
-  padding-bottom: $vertical-rhythm-base;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-bottom: $vertical-rhythm-half;
   @include breakpoint(medium) { margin: auto; }
+
+  &.wrapper-img-padded { padding-left: 25%; padding-right: 25%; }
+  &.wrapper-img-full { padding-left: 0; padding-right: 0; }
+  &.clear-padding { padding-bottom: 0; }
 
   img {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: $vertical-rhythm-base;
+    width: 100%;
+
+    &.image-small {
+      //max-width: 26rem;
+      max-width: 22rem;
+    }
   }
 }
 
 .illo {
   width: 100%;
-  @include breakpoint(medium) { width: 80%; }
-  @include breakpoint(large) { width: 60%; }
+  //@include breakpoint(medium) { width: 70%; }
+  //@include breakpoint(large) { width: 70%; }
 
-}
-
-// --------------------------------------------------------- /
-// Layout: Vertical spacing (padding only)
-// --------------------------------------------------------- /
-
-.vspace-relaxed, .vspace-tight {
-  padding-top: $vertical-rhythm-base; padding-bottom: $vertical-rhythm-base;
-}
-.vspace-relaxed-top { padding-top: $vertical-rhythm-base; }
-.vspace-relaxed-bottom { padding-bottom: $vertical-rhythm-base; }
-.vspace-clear { padding-top: 0; padding-bottom: 0;}
-
-// For larger screens
-.vspace-relaxed {
-  @include breakpoint(medium) { padding-top: $vertical-rhythm-relaxed; padding-bottom: $vertical-rhythm-relaxed; }
-}
-
-.vspace-relaxed-top {
-  @include breakpoint(medium) { padding-top: $vertical-rhythm-relaxed; }
-}
-
-.vspace-relaxed-bottom {
-  @include breakpoint(medium) { padding-bottom: $vertical-rhythm-relaxed; }
 }
