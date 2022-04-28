@@ -5,13 +5,13 @@
 
   <meta charset="utf-8">
   <title>Tricia Ravelo ~ Info</title>
-  <meta name="description" content="Tricia Ravelo is a product designer living in Providence, RI, USA.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <meta name="description" content="Tricia Ravelo is a designer focused on experience strategy and product design">
+  <meta propert="og:description" content="Tricia Ravelo is a designer focused on experience strategy and product design"
   <meta property="og:title" content="Tricia Ravelo">
   <meta property="og:type" content="website">
   <meta property="og:url" content="http://triciaravelo.com">
-  <meta property="og:image" content="">
+  <meta property="og:image" content="https://raw.githubusercontent.com/ravelo/ravelo.github.io/master/assets/media/metapreview.png">
 
   <!-- Standard -->
   <link rel="icon" sizes="16x16" href="assets/media/ico/16.png" type="image/png">
@@ -32,7 +32,6 @@
 <section>
   <div class="vspace-base-bottom">
     <h1 class="visiblyhidden">Intro</h1>
-
     <p class="text-m">Tricia Ravelo&mdash;Designer focused on experience strategy &amp; product design. Currently a Product Design Lead for native apps at Wayfair. Reach out via email to discuss all things design, etc. <span class="no-wrap">(<button id="toggle-info-button">More info</button>)</span></p>
   </div>
 
@@ -43,7 +42,6 @@
     <p class="text-serif">Tricia Ravelo is an aspiring-journalist turned product designer, based on the east coast. She currently designs the discovery and inspiration experience for Wayfair’s consumer-facing native apps.</p>
     <p class="text-serif text-indent">At Wayfair, she influences product strategy and drives outcome-oriented, end-to-end projects in a highly collaborative environment. She also spends time developing the internal design practice through individual mentorship and program facilitation. Previous experience includes web and mobile app design for SaaS, enterprise, and other start-up clients.</p>
     <p class="text-serif text-indent">She is energized by opportunities to help people enrich their relationships with themselves, with others, and with their environments. Don’t hesitate to get in touch!</p>
-
     <p class="text-serif text-indent vspace-half-top"><em>Find her elsewhere&mdash;</em></p>
     <ul class="simple">
       <li><a href="https://www.linkedin.com/in/triciaravelo">LinkedIn</a></li>
@@ -93,7 +91,7 @@
     </div>
     <p class="text-s text-serif"><em><a href="mailto:tricia@triciaravelo.com" title="Email Tricia">hello@triciaravelo.com</a></em></p>
     <div class="vspace-base-top">
-      <p class="text-xxs marquee-content">This site was designed and built by Tricia Ravelo <span class="no-wrap">(updated April 2022) &#x263A;</span></p>
+      <p class="text-xs marquee-content">This site was designed and built by Tricia Ravelo <span class="no-wrap">(updated April 2022) &#x263A;</span></p>
     </div>
   </div>
 </footer>
@@ -104,11 +102,8 @@
   button.addEventListener("click", function(){
     button.classList.toggle("active");
     if (content.hasAttribute("hidden")) {
-      //window.scrollTo({ top: 100, behavior: 'smooth' });
-
       content.removeAttribute("hidden");
       content.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
       button.innerHTML = "Less info";
       button.setAttribute("aria-expanded","true");
     } else {

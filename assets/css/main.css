@@ -62,6 +62,20 @@ h1 {
   font-feature-settings: "ss05";
 }
 
+html {
+  font-size: 16px;
+}
+
+body {
+  background-color: #ffffff;
+  color: #000000;
+  font-family: "Basis Grotesque Web";
+  line-height: 1.2;
+  font-kerning: normal;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
 .text-sans {
   font-family: "Basis Grotesque Web";
 }
@@ -85,92 +99,80 @@ h1 {
 .text-center-responsive {
   text-align: left;
 }
-@media (min-width: 52rem) {
+@media (min-width: 56rem) {
   .text-center-responsive {
     text-align: center;
   }
 }
 
-h1, h2, h3, .text-l {
-  font-size: 3.052rem;
-}
-
-.text-xl {
-  font-size: 4.768rem;
-}
-
-.text-m {
-  font-size: 2.441rem;
-}
-
-.text-s, p, ul {
-  font-size: 1.953rem;
-}
-
 .text-xs {
+  font-size: 1.25rem;
+}
+
+p, ul {
+  font-size: 1.563rem;
+}
+
+.text-s, .text-m {
   font-size: 2.441rem;
 }
 
-.text-xxs {
-  font-size: 1rem;
+.text-l, h1, h2, h3 {
+  font-size: 3.815rem;
 }
 
-@media (min-width: 36rem) {
+@media (min-width: 48rem) {
   .text-m {
     font-size: 3.052rem;
   }
 }
 
-@media (min-width: 36rem) {
-  h1, h2, h3, .text-l {
-    font-size: 3.815rem;
-  }
-}
-
-@media (min-width: 52rem) {
-  .text-xl, h1 {
-    font-size: 5.96rem;
-  }
-}
-
-@media (min-width: 52rem) {
-  .text-l {
+@media (min-width: 48rem) {
+  .text-l, h1, h2, h3 {
     font-size: 4.768rem;
   }
 }
 
-@media (min-width: 52rem) {
-  .text-m {
-    font-size: 3.815rem;
-  }
-}
-
-@media (min-width: 52rem) {
-  .text-s {
-    font-size: 3.052rem;
-  }
-}
-
-@media (min-width: 52rem) {
-  .text-xxs {
+@media (min-width: 56rem) {
+  .text-xs {
     font-size: 1.25rem;
   }
 }
 
-@media (min-width: 52rem) {
+@media (min-width: 56rem) {
   p, ul {
     font-size: 2.441rem;
   }
 }
 
-h1, h2, h3, h4, .text-xl, .text-l {
-  line-height: 1.22;
+@media (min-width: 56rem) {
+  .text-s {
+    font-size: 3.052rem;
+  }
+}
+
+@media (min-width: 56rem) {
+  .text-m {
+    font-size: 3.815rem;
+  }
+}
+
+@media (min-width: 56rem) {
+  .text-l, h1 {
+    font-size: 5.96rem;
+  }
+}
+
+@media (min-width: 90rem) {
+  .text-m {
+    font-size: 4.768rem;
+  }
 }
 
 h1 {
   margin-bottom: 0.8rem;
 }
-@media (min-width: 52rem) {
+@media (min-width: 56rem) {
   h1 {
     margin-bottom: 2.4rem;
   }
@@ -179,7 +181,6 @@ h1 {
 p {
   margin: 0;
   padding: 0;
-  line-height: 1.2;
 }
 p.text-m {
   line-height: 1.05;
@@ -215,13 +216,13 @@ ul.horizontal li {
   margin-right: 0.25rem;
   margin-bottom: 0.5rem;
 }
-@media (min-width: 36rem) {
+@media (min-width: 64rem) {
   ul.horizontal li {
     margin-bottom: 0.75rem;
     width: auto;
   }
 }
-@media (min-width: 52rem) {
+@media (min-width: 64rem) {
   ul.horizontal li.break {
     margin-right: 10rem;
   }
@@ -234,7 +235,7 @@ a.outlined {
   border-radius: 15rem;
   padding: 0.2rem 1.2rem 0.4rem;
 }
-@media (min-width: 52rem) {
+@media (min-width: 56rem) {
   a.outlined {
     border: 0.215rem solid #000000;
   }
@@ -274,7 +275,7 @@ button:hover, button.active {
 p.marquee-content {
   color: rgba(255, 255, 255, 0.7);
 }
-@media (min-width: 52rem) {
+@media (min-width: 64rem) {
   p.marquee-content {
     -moz-animation: marquee 30s linear infinite;
     -webkit-animation: marquee 30s linear infinite;
@@ -310,24 +311,6 @@ p.marquee-content {
     transform: translateX(-100%);
   }
 }
-html {
-  font-size: 14px;
-}
-@media (min-width: 52rem) {
-  html {
-    font-size: 16px;
-  }
-}
-
-body {
-  background-color: #ffffff;
-  color: #000000;
-  font-family: "Basis Grotesque Web";
-  font-kerning: normal;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-}
-
 footer {
   overflow-x: hidden;
 }
@@ -356,7 +339,7 @@ footer {
 .vspace-triple {
   padding: 8.4rem 0;
 }
-@media (min-width: 52rem) {
+@media (min-width: 56rem) {
   .vspace-triple {
     padding: 11.2rem 0;
   }
@@ -389,7 +372,7 @@ footer {
 .vspace-double-top {
   padding-top: 5.7rem;
 }
-@media (min-width: 52rem) {
+@media (min-width: 56rem) {
   .vspace-double-top {
     padding-top: 7.6rem;
   }
@@ -398,7 +381,7 @@ footer {
 .vspace-double-bottom {
   padding-bottom: 5.7rem;
 }
-@media (min-width: 52rem) {
+@media (min-width: 56rem) {
   .vspace-double-bottom {
     padding-bottom: 7.6rem;
   }
@@ -407,7 +390,7 @@ footer {
 .vspace-triple-top {
   padding-top: 8.4rem;
 }
-@media (min-width: 52rem) {
+@media (min-width: 56rem) {
   .vspace-triple-top {
     padding-top: 11.2rem;
   }
@@ -416,7 +399,7 @@ footer {
 .vspace-triple-bottom {
   padding-bottom: 8.4rem;
 }
-@media (min-width: 52rem) {
+@media (min-width: 56rem) {
   .vspace-triple-bottom {
     padding-bottom: 11.2rem;
   }
@@ -426,20 +409,16 @@ header, section, footer, .wrapper-large {
   padding: 2.4rem 0.8rem;
   margin: 0 auto;
 }
-@media (min-width: 52rem) {
+@media (min-width: 56rem) {
   header, section, footer, .wrapper-large {
     padding: 2.4rem;
   }
 }
 
-.wrapper-large {
-  margin: 0 auto;
-}
-
 .wrapper-medium {
   margin: 0 auto;
 }
-@media (min-width: 64rem) {
+@media (min-width: 80rem) {
   .wrapper-medium {
     width: 68rem;
   }
@@ -447,6 +426,7 @@ header, section, footer, .wrapper-large {
 
 .wrapper-small {
   margin: 0 auto;
+  width: 100%;
 }
 @media (min-width: 64rem) {
   .wrapper-small {
@@ -459,7 +439,7 @@ header, section, footer, .wrapper-large {
   padding-right: 10%;
   padding-bottom: 0.8rem;
 }
-@media (min-width: 52rem) {
+@media (min-width: 56rem) {
   .wrapper-img {
     margin: auto;
     padding-bottom: 2.4rem;
@@ -469,7 +449,7 @@ header, section, footer, .wrapper-large {
   padding-left: 15%;
   padding-right: 15%;
 }
-@media (min-width: 52rem) {
+@media (min-width: 56rem) {
   .wrapper-img.wrapper-img-padded {
     padding-left: 25%;
     padding-right: 25%;
@@ -489,11 +469,12 @@ header, section, footer, .wrapper-large {
   width: 100%;
 }
 .wrapper-img img.image-small {
-  max-width: 22rem;
+  max-width: 16rem;
 }
-
-.illo {
-  width: 100%;
+@media (min-width: 56rem) {
+  .wrapper-img img.image-small {
+    max-width: 22rem;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

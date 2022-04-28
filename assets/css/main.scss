@@ -39,21 +39,33 @@
 
 @mixin breakpoint($point) {
 
-  @if $point == extralarge {
-      @media (min-width: 80rem) { @content ; }
-  }
+  @if $point == ultralarge {
+      @media (min-width: 120rem) { @content ; }
+  } // 1920px
+
+  @else if $point == extralarge {
+      @media (min-width: 90rem) { @content ; }
+  } // 1440px
 
   @else if $point == large {
+      @media (min-width: 80rem) { @content ; }
+  } // 1280px
+
+  @else if $point == desktop {
        @media (min-width: 64rem) { @content ; }
-  }
+  } // 1024px
 
-  @else if $point == medium {
-       @media (min-width: 52rem) { @content ; }
-  }
+  @else if $point == tablet {
+       @media (min-width: 56rem) { @content ; }
+  } // 900px -- tablet
 
-  @else if $point == small {
-       @media (min-width: 36rem) { @content ; }
-  }
+  @else if $point == mobile-landscape {
+       @media (min-width: 48rem) { @content ; }
+  } // 767px -- mobile landscape
+
+  @else if $point == mobile-portrait {
+       @media (min-width: 30rem) { @content ; }
+  } // 478px -- mobile portrait
 
 }
 
@@ -129,6 +141,7 @@ $indent: $vspace-unit*.75;
 // --------------------------------------------------------- *
 
 
+
 // --------------------------------------------------------- /
 // Web fonts! @font-face declarations
 // --------------------------------------------------------- /
@@ -194,6 +207,22 @@ $display: 'GT America Expanded Medium';
 }
 
 
+
+html {
+  font-size: 16px;
+}
+
+body {
+  background-color: $surface-color;
+  color: $text-color;
+  font-family: $sans-serif;
+  line-height: 1.2;
+  font-kerning: normal;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+
 // --------------------------------------------------------- /
 // Theme: Typography
 // --------------------------------------------------------- /
@@ -208,44 +237,40 @@ $display: 'GT America Expanded Medium';
 .text-center { text-align: center; }
 .text-center-responsive {
   text-align: left;
-  @include breakpoint(medium) { text-align: center; } // only centered on large screens
+  @include breakpoint(tablet) { text-align: center; } // only centered on large screens
 }
 
+// Smallest screens
+.text-xs { font-size: $text-size-8; }
+p, ul { font-size: $text-size-7; }
+.text-s, .text-m { font-size: $text-size-5; }
+.text-l, h1, h2, h3 { font-size: $text-size-3; }
 
-// Smaller screens: type levels are flattened
-h1, h2, h3, .text-l { font-size: $text-size-4; }
-.text-xl { font-size: $text-size-2; }
-.text-m { font-size: $text-size-5; }
-.text-s, p, ul { font-size: $text-size-6; }
-.text-xs { font-size: $text-size-5; }
-.text-xxs {font-size: $text-size-9;}
+// Medium screens
+.text-m { @include breakpoint(mobile-landscape) { font-size: $text-size-4; } }
+.text-l, h1, h2, h3 {  @include breakpoint(mobile-landscape) { font-size: $text-size-2; } }
 
-// Medium Screens
-.text-m { @include breakpoint(small) { font-size: $text-size-4; } }
-h1, h2, h3, .text-l  { @include breakpoint(small) { font-size: $text-size-3; } }
+// Medium-large screens
+.text-xs { @include breakpoint(tablet) { font-size: $text-size-8; } }
+p, ul { @include breakpoint(tablet) { font-size: $text-size-5; } }
+.text-s { @include breakpoint(tablet) { font-size: $text-size-4; } }
+.text-m { @include breakpoint(tablet) { font-size: $text-size-3; } }
+.text-l, h1 { @include breakpoint(tablet) { font-size: $text-size-1; } }
 
+// Larger screens
+.text-m { @include breakpoint(extralarge) { font-size: $text-size-2; } }
 
-// Larger screens: type levels have more variance
-.text-xl, h1 { @include breakpoint(medium) { font-size: $text-size-1; } }
-.text-l { @include breakpoint(medium) { font-size: $text-size-2; } }
-.text-m { @include breakpoint(medium) { font-size: $text-size-3; } }
-.text-s { @include breakpoint(medium) { font-size: $text-size-4; } }
-.text-xxs { @include breakpoint(medium) { font-size: $text-size-8; } }
-p, ul { @include breakpoint(medium) { font-size: $text-size-5; } }
-
-h1, h2, h3, h4, .text-xl, .text-l { line-height: 1.22; }
 
 h1 {
   @extend %display;
   margin-bottom: $vertical-rhythm-quarter;
 
-  @include breakpoint(medium) { margin-bottom: $vertical-rhythm-half; }
+  @include breakpoint(tablet) { margin-bottom: $vertical-rhythm-half; }
 }
 
 p {
   margin: 0;
   padding: 0;
-  line-height: 1.2;
 
   &.text-m { line-height: 1.05; }
 }
@@ -278,17 +303,17 @@ ul {
     display: inline-block;
 
     li {
-      float:left;
+      float: left;
       width: 100%;
       margin-right: 0.25rem;
       margin-bottom: 0.5rem;
-      @include breakpoint(small) {
+      @include breakpoint(desktop) {
         margin-bottom: 0.75rem;
         width: auto;
       }
 
       &.break {
-        @include breakpoint(medium) { margin-right:10rem; }
+        @include breakpoint(desktop) { margin-right: 10rem; }
       }
     }
   }
@@ -305,7 +330,7 @@ a.outlined {
   border-radius: 15rem;
   padding: 0.2rem 1.2rem 0.4rem;
 
-  @include breakpoint(medium) {
+  @include breakpoint(tablet) {
     border: 0.215rem solid $text-color;
   }
 
@@ -341,7 +366,6 @@ button {
 
 
 
-
 // --------------------------------------------------------- /
 // Novelty: Marquee effect
 // --------------------------------------------------------- /
@@ -354,7 +378,7 @@ $marquee-x-pos-end: -100%;
 p.marquee-content {
   color: rgba($text-color-reverse, 0.7);
 
-  @include breakpoint(medium) {
+  @include breakpoint(desktop) {
     -moz-animation: marquee $marquee-speed linear infinite;
     -webkit-animation: marquee $marquee-speed linear infinite;
     animation: marquee $marquee-speed linear infinite;
@@ -396,25 +420,12 @@ p.marquee-content {
 //
 // --------------------------------------------------------- *
 
-html {
-  font-size: 14px;
-  @include breakpoint(medium) { font-size: 16px; }
-}
-
-body {
-  background-color: $surface-color;
-  color: $text-color;
-  font-family: $sans-serif;
-  font-kerning: normal;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-}
-
-footer { overflow-x: hidden; }
 
 // --------------------------------------------------------- /
 // Layout: Container props & vertical rhythm
 // --------------------------------------------------------- /
+
+footer { overflow-x: hidden; }
 
 .vspace-clear { padding-top: 0; padding-bottom: 0;}
 .vspace-base { padding: $vertical-rhythm-base 0; }
@@ -425,7 +436,7 @@ footer { overflow-x: hidden; }
 
 .vspace-triple {
   padding: $vertical-rhythm-triple*0.75 0;
-  @include breakpoint(medium) { padding: $vertical-rhythm-triple 0; }
+  @include breakpoint(tablet) { padding: $vertical-rhythm-triple 0; }
 }
 
 .vspace-base-top { padding-top: $vertical-rhythm-base; }
@@ -438,35 +449,31 @@ footer { overflow-x: hidden; }
 
 .vspace-double-top {
   padding-top: $vertical-rhythm-double*0.75;
-  @include breakpoint(medium) { padding-top: $vertical-rhythm-double; }
+  @include breakpoint(tablet) { padding-top: $vertical-rhythm-double; }
 }
 
 .vspace-double-bottom {
   padding-bottom: $vertical-rhythm-double*0.75;
-  @include breakpoint(medium) { padding-bottom: $vertical-rhythm-double; }
+  @include breakpoint(tablet) { padding-bottom: $vertical-rhythm-double; }
 }
 
 .vspace-triple-top {
   padding-top: $vertical-rhythm-triple*0.75;
-  @include breakpoint(medium) { padding-top: $vertical-rhythm-triple; }
+  @include breakpoint(tablet) { padding-top: $vertical-rhythm-triple; }
 }
 
 .vspace-triple-bottom {
   padding-bottom: $vertical-rhythm-triple*0.75;
-  @include breakpoint(medium) { padding-bottom: $vertical-rhythm-triple;  }
+  @include breakpoint(tablet) { padding-bottom: $vertical-rhythm-triple;  }
 }
 
 header, section, footer, .wrapper-large {
   padding: $vertical-rhythm-half $vertical-rhythm-quarter;
   margin: 0 auto;
 
-  @include breakpoint(medium) { padding: $vertical-rhythm-half; }
+  @include breakpoint(tablet) { padding: $vertical-rhythm-half; }
 }
 
-.wrapper-large {
-  margin: 0 auto;
-  //@include breakpoint(large) { width: 52rem; }
-}
 
 .wrapper-medium {
   margin: 0 auto;
@@ -475,8 +482,10 @@ header, section, footer, .wrapper-large {
 
 .wrapper-small {
   margin: 0 auto;
-  @include breakpoint(large) { width: 52rem; }
+  width: 100%;
+  @include breakpoint(desktop) { width: 52rem; }
 }
+
 
 
 
@@ -484,7 +493,7 @@ header, section, footer, .wrapper-large {
   padding-left: 10%;
   padding-right: 10%;
   padding-bottom: $vertical-rhythm-quarter;
-  @include breakpoint(medium) {
+  @include breakpoint(tablet) {
     margin: auto;
     padding-bottom: $vertical-rhythm-half;
    }
@@ -492,7 +501,7 @@ header, section, footer, .wrapper-large {
   &.wrapper-img-padded {
     padding-left: 15%;
     padding-right: 15%;
-    @include breakpoint(medium) {
+    @include breakpoint(tablet) {
       padding-left: 25%;
       padding-right: 25%;
      }
@@ -508,14 +517,9 @@ header, section, footer, .wrapper-large {
     width: 100%;
 
     &.image-small {
-      max-width: 22rem;
+      max-width: 16rem;
+
+      @include breakpoint(tablet) { max-width: 22rem; }
     }
   }
-}
-
-.illo {
-  width: 100%;
-  //@include breakpoint(medium) { width: 70%; }
-  //@include breakpoint(large) { width: 70%; }
-
 }
