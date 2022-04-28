@@ -63,7 +63,12 @@ h1 {
 }
 
 html {
-  font-size: 16px;
+  font-size: 14px;
+}
+@media (min-width: 30rem) {
+  html {
+    font-size: 16px;
+  }
 }
 
 body {
@@ -114,11 +119,29 @@ p, ul {
 }
 
 .text-s, .text-m {
-  font-size: 2.441rem;
+  font-size: 1.953rem;
 }
 
 .text-l, h1, h2, h3 {
-  font-size: 3.815rem;
+  font-size: 3.052rem;
+}
+
+@media (min-width: 48rem) {
+  p, ul {
+    font-size: 1.563rem;
+  }
+}
+
+@media (min-width: 48rem) {
+  .text-s, .text-m {
+    font-size: 2.441rem;
+  }
+}
+
+@media (min-width: 48rem) {
+  .text-l, h1, h2, h3 {
+    font-size: 3.815rem;
+  }
 }
 
 @media (min-width: 48rem) {
@@ -230,10 +253,17 @@ ul.horizontal li {
 
 a.outlined {
   display: inline-block;
-  border: 0.175rem solid #000000;
+  border: 0.145rem solid #000000;
   font-style: italic;
   border-radius: 15rem;
-  padding: 0.2rem 1.2rem 0.4rem;
+  padding: 0.2rem 1rem 0.4rem;
+}
+@media (min-width: 48rem) {
+  a.outlined {
+    border: 0.175rem solid #000000;
+    font-style: italic;
+    padding: 0.2rem 1.2rem 0.4rem;
+  }
 }
 @media (min-width: 56rem) {
   a.outlined {
@@ -337,9 +367,9 @@ footer {
 }
 
 .vspace-triple {
-  padding: 8.4rem 0;
+  padding: 4rem 0;
 }
-@media (min-width: 56rem) {
+@media (min-width: 48rem) {
   .vspace-triple {
     padding: 11.2rem 0;
   }
@@ -370,36 +400,36 @@ footer {
 }
 
 .vspace-double-top {
-  padding-top: 5.7rem;
+  padding-top: 4rem;
 }
-@media (min-width: 56rem) {
+@media (min-width: 48rem) {
   .vspace-double-top {
     padding-top: 7.6rem;
   }
 }
 
 .vspace-double-bottom {
-  padding-bottom: 5.7rem;
+  padding-bottom: 4rem;
 }
-@media (min-width: 56rem) {
+@media (min-width: 48rem) {
   .vspace-double-bottom {
     padding-bottom: 7.6rem;
   }
 }
 
 .vspace-triple-top {
-  padding-top: 8.4rem;
+  padding-top: 4rem;
 }
-@media (min-width: 56rem) {
+@media (min-width: 48rem) {
   .vspace-triple-top {
     padding-top: 11.2rem;
   }
 }
 
 .vspace-triple-bottom {
-  padding-bottom: 8.4rem;
+  padding-bottom: 4rem;
 }
-@media (min-width: 56rem) {
+@media (min-width: 48rem) {
   .vspace-triple-bottom {
     padding-bottom: 11.2rem;
   }
@@ -409,7 +439,7 @@ header, section, footer, .wrapper-large {
   padding: 2.4rem 0.8rem;
   margin: 0 auto;
 }
-@media (min-width: 56rem) {
+@media (min-width: 48rem) {
   header, section, footer, .wrapper-large {
     padding: 2.4rem;
   }

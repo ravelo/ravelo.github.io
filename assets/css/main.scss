@@ -209,7 +209,8 @@ $display: 'GT America Expanded Medium';
 
 
 html {
-  font-size: 16px;
+  font-size: 14px;
+  @include breakpoint(mobile-portrait) { font-size: 16px; }
 }
 
 body {
@@ -243,8 +244,13 @@ body {
 // Smallest screens
 .text-xs { font-size: $text-size-8; }
 p, ul { font-size: $text-size-7; }
-.text-s, .text-m { font-size: $text-size-5; }
-.text-l, h1, h2, h3 { font-size: $text-size-3; }
+.text-s, .text-m { font-size: $text-size-6; }
+.text-l, h1, h2, h3 { font-size: $text-size-4; }
+
+// Smallest screens
+p, ul {  @include breakpoint(mobile-landscape) { font-size: $text-size-7; } }
+.text-s, .text-m {  @include breakpoint(mobile-landscape) { font-size: $text-size-5; } }
+.text-l, h1, h2, h3 {  @include breakpoint(mobile-landscape) { font-size: $text-size-3; } }
 
 // Medium screens
 .text-m { @include breakpoint(mobile-landscape) { font-size: $text-size-4; } }
@@ -324,11 +330,17 @@ ul {
 // Special style: hyperlinks with oval outlines
 a.outlined {
   display:inline-block;
-  border: 0.175rem solid $text-color;
+  border: 0.145rem solid $text-color;
   @extend %serif;
   font-style: italic;
   border-radius: 15rem;
-  padding: 0.2rem 1.2rem 0.4rem;
+  padding: 0.2rem 1rem 0.4rem;
+
+  @include breakpoint(mobile-landscape) {
+    border: 0.175rem solid $text-color;
+    font-style: italic;
+    padding: 0.2rem 1.2rem 0.4rem;
+  }
 
   @include breakpoint(tablet) {
     border: 0.215rem solid $text-color;
@@ -435,8 +447,8 @@ footer { overflow-x: hidden; }
 
 
 .vspace-triple {
-  padding: $vertical-rhythm-triple*0.75 0;
-  @include breakpoint(tablet) { padding: $vertical-rhythm-triple 0; }
+  padding: $vertical-rhythm-base 0;
+  @include breakpoint(mobile-landscape) { padding: $vertical-rhythm-triple 0; }
 }
 
 .vspace-base-top { padding-top: $vertical-rhythm-base; }
@@ -448,30 +460,30 @@ footer { overflow-x: hidden; }
 
 
 .vspace-double-top {
-  padding-top: $vertical-rhythm-double*0.75;
-  @include breakpoint(tablet) { padding-top: $vertical-rhythm-double; }
+  padding-top: $vertical-rhythm-base;
+  @include breakpoint(mobile-landscape) { padding-top: $vertical-rhythm-double; }
 }
 
 .vspace-double-bottom {
-  padding-bottom: $vertical-rhythm-double*0.75;
-  @include breakpoint(tablet) { padding-bottom: $vertical-rhythm-double; }
+  padding-bottom: $vertical-rhythm-base;
+  @include breakpoint(mobile-landscape) { padding-bottom: $vertical-rhythm-double; }
 }
 
 .vspace-triple-top {
-  padding-top: $vertical-rhythm-triple*0.75;
-  @include breakpoint(tablet) { padding-top: $vertical-rhythm-triple; }
+  padding-top: $vertical-rhythm-base;
+  @include breakpoint(mobile-landscape) { padding-top: $vertical-rhythm-triple; }
 }
 
 .vspace-triple-bottom {
-  padding-bottom: $vertical-rhythm-triple*0.75;
-  @include breakpoint(tablet) { padding-bottom: $vertical-rhythm-triple;  }
+  padding-bottom: $vertical-rhythm-base;
+  @include breakpoint(mobile-landscape) { padding-bottom: $vertical-rhythm-triple;  }
 }
 
 header, section, footer, .wrapper-large {
   padding: $vertical-rhythm-half $vertical-rhythm-quarter;
   margin: 0 auto;
 
-  @include breakpoint(tablet) { padding: $vertical-rhythm-half; }
+  @include breakpoint(mobile-landscape) { padding: $vertical-rhythm-half; }
 }
 
 
