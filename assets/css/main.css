@@ -86,7 +86,12 @@ body {
 }
 
 .text-indent {
-  text-indent: 3rem;
+  text-indent: 1.2rem;
+}
+@media (min-width: 48rem) {
+  .text-indent {
+    text-indent: 2rem;
+  }
 }
 
 .no-wrap {
@@ -111,88 +116,82 @@ body {
 }
 
 .text-xs {
-  font-size: 1.25rem;
+  font-size: 1rem;
 }
-
-p, ul {
-  font-size: 1.563rem;
-}
-
-.text-s, .text-m {
-  font-size: 1.953rem;
-}
-
-.text-l, h1, h2, h3 {
-  font-size: 3.052rem;
-}
-
 @media (min-width: 48rem) {
-  p, ul {
-    font-size: 1.563rem;
-  }
-}
-
-@media (min-width: 48rem) {
-  .text-s, .text-m {
-    font-size: 2.441rem;
-  }
-}
-
-@media (min-width: 48rem) {
-  .text-l, h1, h2, h3 {
-    font-size: 3.815rem;
-  }
-}
-
-@media (min-width: 48rem) {
-  .text-m {
-    font-size: 3.052rem;
-  }
-}
-
-@media (min-width: 48rem) {
-  .text-l, h1, h2, h3 {
-    font-size: 4.768rem;
-  }
-}
-
-@media (min-width: 56rem) {
   .text-xs {
     font-size: 1.25rem;
   }
 }
 
-@media (min-width: 56rem) {
-  p, ul {
+.text-s {
+  font-size: 1.563rem;
+}
+@media (min-width: 30rem) {
+  .text-s {
+    font-size: 1.953rem;
+  }
+}
+@media (min-width: 48rem) {
+  .text-s {
     font-size: 2.441rem;
   }
 }
-
 @media (min-width: 56rem) {
   .text-s {
     font-size: 3.052rem;
   }
 }
 
+.text-m {
+  font-size: 2.441rem;
+}
+@media (min-width: 48rem) {
+  .text-m {
+    font-size: 3.052rem;
+  }
+}
 @media (min-width: 56rem) {
   .text-m {
     font-size: 3.815rem;
   }
 }
-
-@media (min-width: 56rem) {
-  .text-l, h1 {
-    font-size: 5.96rem;
-  }
-}
-
 @media (min-width: 90rem) {
   .text-m {
     font-size: 4.768rem;
   }
 }
 
+.text-l {
+  font-size: 3.052rem;
+}
+@media (min-width: 48rem) {
+  .text-l {
+    font-size: 4.768rem;
+  }
+}
+@media (min-width: 56rem) {
+  .text-l {
+    font-size: 5.96rem;
+  }
+}
+
+p {
+  font-size: 1.563rem;
+  margin: 0;
+  padding: 0;
+}
+p.text-m {
+  line-height: 1.05;
+}
+@media (min-width: 56rem) {
+  p {
+    font-size: 2.441rem;
+  }
+}
+
 h1 {
+  font-size: 2.441rem;
   margin-bottom: 0.8rem;
 }
 @media (min-width: 56rem) {
@@ -200,13 +199,20 @@ h1 {
     margin-bottom: 2.4rem;
   }
 }
-
-p {
-  margin: 0;
-  padding: 0;
+@media (min-width: 30rem) {
+  h1 {
+    font-size: 3.052rem;
+  }
 }
-p.text-m {
-  line-height: 1.05;
+@media (min-width: 48rem) {
+  h1 {
+    font-size: 4.768rem;
+  }
+}
+@media (min-width: 56rem) {
+  h1 {
+    font-size: 5.96rem;
+  }
 }
 
 a {
@@ -223,12 +229,24 @@ ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
+  font-size: 1.563rem;
+}
+@media (min-width: 56rem) {
+  ul {
+    font-size: 2.441rem;
+  }
 }
 ul.simple {
-  margin-left: 3rem;
+  margin-left: 1.2rem;
 }
 ul.simple li a {
   border-bottom: none;
+  line-height: 1.25;
+}
+@media (min-width: 48rem) {
+  ul.simple {
+    margin-left: 2rem;
+  }
 }
 ul.horizontal {
   display: inline-block;
@@ -253,21 +271,22 @@ ul.horizontal li {
 
 a.outlined {
   display: inline-block;
-  border: 0.145rem solid #000000;
-  font-style: italic;
-  border-radius: 15rem;
   padding: 0.2rem 1rem 0.4rem;
+  font-size: 1.953rem;
+  font-style: italic;
+  border: 0.125rem solid #000000;
+  border-radius: 15rem;
 }
 @media (min-width: 48rem) {
   a.outlined {
     border: 0.175rem solid #000000;
-    font-style: italic;
-    padding: 0.2rem 1.2rem 0.4rem;
+    font-size: 3.052rem;
   }
 }
 @media (min-width: 56rem) {
   a.outlined {
     border: 0.215rem solid #000000;
+    font-size: 3.815rem;
   }
 }
 

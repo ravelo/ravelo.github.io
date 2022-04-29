@@ -128,7 +128,7 @@ $text-size-7: 1.563rem;
 $text-size-8: 1.25rem;
 $text-size-9: 1rem;
 $text-size-10: 0.8rem; //caption
-$indent: $vspace-unit*.75;
+$indent: $vspace-unit*.5;
 
 
 // --------------------------------------------------------- *
@@ -232,7 +232,10 @@ body {
 // Global text helper classes
 .text-sans { font-family: $sans-serif; }
 .text-serif { @extend %serif; }
-.text-indent { text-indent: $indent;}
+.text-indent {
+  text-indent: $indent*0.6;
+  @include breakpoint(mobile-landscape) { text-indent: $indent; }
+}
 .no-wrap { white-space: nowrap; }
 .uppercase { text-transform: uppercase; }
 .text-center { text-align: center; }
@@ -241,45 +244,71 @@ body {
   @include breakpoint(tablet) { text-align: center; } // only centered on large screens
 }
 
-// Smallest screens
-.text-xs { font-size: $text-size-8; }
-p, ul { font-size: $text-size-7; }
-.text-s, .text-m { font-size: $text-size-6; }
-.text-l, h1, h2, h3 { font-size: $text-size-4; }
 
-// Smallest screens
-p, ul {  @include breakpoint(mobile-landscape) { font-size: $text-size-7; } }
-.text-s, .text-m {  @include breakpoint(mobile-landscape) { font-size: $text-size-5; } }
-.text-l, h1, h2, h3 {  @include breakpoint(mobile-landscape) { font-size: $text-size-3; } }
+.text-xs, %text-xs {
+    font-size: $text-size-9;
+    //@include breakpoint(mobile-portrait) { font-size: inherit; }
+    @include breakpoint(mobile-landscape) { font-size: $text-size-8; }
+    //@include breakpoint(tablet) { font-size: inherit; }
+    //@include breakpoint(desktop) { font-size: inherit; }
+    //@include breakpoint(large) { font-size: inherit; }
+ }
 
-// Medium screens
-.text-m { @include breakpoint(mobile-landscape) { font-size: $text-size-4; } }
-.text-l, h1, h2, h3 {  @include breakpoint(mobile-landscape) { font-size: $text-size-2; } }
+.text-s, %text-s {
+    font-size: $text-size-7;
+    @include breakpoint(mobile-portrait) { font-size: $text-size-6; }
+    @include breakpoint(mobile-landscape) { font-size: $text-size-5; }
+    @include breakpoint(tablet) { font-size: $text-size-4; }
+    //@include breakpoint(desktop) { font-size: inherit; }
+    //@include breakpoint(large) { font-size: inherit; }
+ }
 
-// Medium-large screens
-.text-xs { @include breakpoint(tablet) { font-size: $text-size-8; } }
-p, ul { @include breakpoint(tablet) { font-size: $text-size-5; } }
-.text-s { @include breakpoint(tablet) { font-size: $text-size-4; } }
-.text-m { @include breakpoint(tablet) { font-size: $text-size-3; } }
-.text-l, h1 { @include breakpoint(tablet) { font-size: $text-size-1; } }
+.text-m, %text-m {
+   font-size: $text-size-5;
+   //@include breakpoint(mobile-portrait) { font-size: $text-size-4; }
+   @include breakpoint(mobile-landscape) { font-size: $text-size-4; }
+   @include breakpoint(tablet) { font-size: $text-size-3; }
+   //@include breakpoint(desktop) { font-size: inherit; }
+   //@include breakpoint(large) { font-size: inherit; }
+   @include breakpoint(extralarge) { font-size: $text-size-2; }
+}
 
-// Larger screens
-.text-m { @include breakpoint(extralarge) { font-size: $text-size-2; } }
-
-
-h1 {
-  @extend %display;
-  margin-bottom: $vertical-rhythm-quarter;
-
-  @include breakpoint(tablet) { margin-bottom: $vertical-rhythm-half; }
+.text-l, %text-l {
+   font-size: $text-size-4;
+   //@include breakpoint(mobile-portrait) { font-size: inherit; }
+   @include breakpoint(mobile-landscape) { font-size: $text-size-2; }
+   @include breakpoint(tablet) { font-size: $text-size-1; }
+   //@include breakpoint(desktop) { font-size: inherit; }
+   //@include breakpoint(large) { font-size: inherit; }
 }
 
 p {
+  font-size: $text-size-7;
   margin: 0;
   padding: 0;
 
   &.text-m { line-height: 1.05; }
+
+  //@include breakpoint(mobile-portrait) { font-size: inherit; }
+  //@include breakpoint(mobile-landscape) { font-size: inherit; }
+  @include breakpoint(tablet) { font-size: $text-size-5; }
+  //@include breakpoint(desktop) { font-size: inherit; }
+  //@include breakpoint(large) { font-size: inherit; }
 }
+
+h1 {
+  font-size: $text-size-5;
+  @extend %display;
+  margin-bottom: $vertical-rhythm-quarter;
+  @include breakpoint(tablet) { margin-bottom: $vertical-rhythm-half; }
+
+  @include breakpoint(mobile-portrait) { font-size: $text-size-4; }
+  @include breakpoint(mobile-landscape) { font-size: $text-size-2; }
+  @include breakpoint(tablet) { font-size: $text-size-1; }
+  //@include breakpoint(desktop) { font-size: inherit; }
+  //@include breakpoint(large) { font-size: inherit; }
+}
+
 
 a {
   color: inherit;
@@ -298,11 +327,17 @@ ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
+  font-size: $text-size-7;
+  //@include breakpoint(mobile-portrait) { font-size: inherit; }
+  //@include breakpoint(mobile-landscape) { font-size: inherit; }
+  @include breakpoint(tablet) { font-size: $text-size-5; }
+  //@include breakpoint(desktop) { font-size: inherit; }
+  //@include breakpoint(large) { font-size: inherit; }
 
   &.simple {
-    margin-left: $indent;
-
-    li a { border-bottom: none; }
+    margin-left: $indent*0.6;
+    li a { border-bottom: none; line-height: 1.25;}
+    @include breakpoint(mobile-landscape) { margin-left: $indent; }
   }
 
   &.horizontal {
@@ -330,20 +365,21 @@ ul {
 // Special style: hyperlinks with oval outlines
 a.outlined {
   display:inline-block;
-  border: 0.145rem solid $text-color;
-  @extend %serif;
-  font-style: italic;
-  border-radius: 15rem;
   padding: 0.2rem 1rem 0.4rem;
+  @extend %serif;
+  font-size: $text-size-6;
+  font-style: italic;
+  border: 0.125rem solid $text-color;
+  border-radius: 15rem;
 
   @include breakpoint(mobile-landscape) {
     border: 0.175rem solid $text-color;
-    font-style: italic;
-    padding: 0.2rem 1.2rem 0.4rem;
+    font-size: $text-size-4;
   }
 
   @include breakpoint(tablet) {
     border: 0.215rem solid $text-color;
+    font-size: $text-size-3;
   }
 
 }
