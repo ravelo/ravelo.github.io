@@ -30,89 +30,43 @@
 </header>
 
 <section>
-  <div class="vspace-base-bottom">
+  <div class="">
     <h1 class="visiblyhidden">Intro</h1>
-    <p class="text-m">Tricia Ravelo&mdash;Designer focused on experience strategy &amp; product design. Currently a Product Design Lead for native apps at Wayfair. Reach out via email to discuss all things design, etc. <span class="no-wrap">(<button id="toggle-info-button">More info</button>)</span></p>
+    <p class="text-m"><span class="text-accentx">Tricia Ravelo</span> is a designer focused on experience strategy and product design. Currently designing at <span class="text-accent">Wayfair</span>. Reach out via email to discuss all things design, request portfolio, etc.</p>
   </div>
 
-  <div id="toggle-info-content" class="wrapper-small vspace-double-bottom" hidden>
-    <div class="image wrapper-img wrapper-img-padded">
-      <img src="assets/media/itsme.png" alt="Screenshot of Tricia Ravelo on a video call">
-    </div>
-    <p class="text-serif">Tricia Ravelo is an aspiring-journalist turned product designer, based on the east coast. She currently designs the discovery and inspiration experience for Wayfair’s consumer-facing native apps.</p>
-    <p class="text-serif text-indent">At Wayfair, she influences product strategy and drives outcome-oriented, end-to-end projects in a highly collaborative environment. She also spends time developing the internal design practice through individual mentorship and program facilitation. Previous experience includes web and mobile app design for SaaS, enterprise, and other start-up clients.</p>
-    <p class="text-serif text-indent">She is energized by opportunities to help people enrich their relationships with themselves, with others, and with their environments. Don’t hesitate to get in touch!</p>
-    <p class="text-serif text-indent vspace-half-top"><em>Find her elsewhere&mdash;</em></p>
-    <ul class="simple">
-      <li><a href="https://www.linkedin.com/in/triciaravelo">LinkedIn</a></li>
-      <li><a href="https://www.instagram.com/triciaravelo/">Instagram</a></li>
-      <li><a href="https://goodreads.com/ravelo">Goodreads</a></li>
-      <li><a href="https://letterboxd.com/ravelo/films/by/member-rating/">Letterboxd</a></li>
-    </ul>
-  </div>
-  <div class="vspace-base-top">
-    <ul class="horizontal">
-      <li><a class="outlined" href="mailto:hello@triciaravelo.com" title="Email Tricia">hello@triciaravelo.com</a></li>
-      <li><a class="outlined" href="https://www.linkedin.com/in/triciaravelo">LinkedIn</a></li>
-      <li class="break"><a class="outlined" href="https://www.instagram.com/triciaravelo/">Instagram</a></li>
-    </ul>
-  </div>
 </section>
-
-<section class="vspace-double-top vspace-triple-bottom">
-  <div class="wrapper-medium">
-    <h1 class="text-center">Portfolio</h1>
-    <div class="image wrapper-img wrapper-img-full">
-      <img src="assets/media/placeholder.png" alt="Placeholder">
-    </div>
-    <p class="text-serif"><span class="text-sans uppercase">Recent work&mdash;</span>Wayfair mobile app design <em>(portfolio available on request)</em></p>
-  </div>
-  <div class="vspace-triple-top text-center">
-    <h1>Expertise</h1>
+<section>
+  <div class="vspace-base-bottom">
+    <h1 class="text-xs">Experience</h1>
     <ul class="text-serif text-s">
-      <li>Product Discovery</li>
-      <li>Design Strategy</li>
-      <li>Interaction Design</li>
-      <li>Visual Design</li>
-      <li>Experiment Design</li>
-      <li>Qualitative Research</li>
-      <li>Workshop Facilitation</li>
-      <li>Mentorship/Coaching</li>
+      <li>Current&mdash;<span class="text-sans">Wayfair (native app e-commerce)</span></li>
+      <li>Previous&mdash;<span class="text-sans">Startups, agencies, and more</span></li>
     </ul>
   </div>
+  <div class="vspace-base-bottom">
+    <h1 class="text-xs">Contact</h1>
+    <ul class="text-serif text-s">
+      <li><a href="mailto:tricia@triciaravelo.com" title="Email Tricia">Email&mdash;<span class="text-sans">hello@triciaravelo.com</span></a></li>
+      <li><a href="https://www.linkedin.com/in/triciaravelo/" title="LinkedIn profile">LinkedIn&mdash;<span class="text-sans">/in/triciaravelo</span></a></li>
+    </ul>
+  </div>
+  <div class="vspace-base-bottom">
+    <h1 class="text-xs">Elsewhere</h1>
+    <ul class="text-serif text-s">
+      <li><a href="https://www.instagram.com/triciaravelo/" title="Instagram profile">Instagram</a></li>
+      <li><a href="https://goodreads.com/ravelo" title="Goodreads profile">Goodreads</a></li>
+      <li><a href="https://letterboxd.com/ravelo/films/by/member-rating/" title="Letterboxd (movie tracking)">Letterboxd</a></li>
+    </ul>
+  </div>
+
 </section>
 
-
-<footer class="vspace-clear bg-dark">
-  <div class="vspace-double-top vspace-quarter-bottom text-center">
-    <h1>Get in touch</h1>
-    <div class="wrapper-img image clear-padding">
-      <img class="image-small" src="assets/media/missflower.gif" alt="Simple, animated line illustration of a flower person relaxing">
-    </div>
-    <p class="text-s text-serif"><em><a href="mailto:tricia@triciaravelo.com" title="Email Tricia">hello@triciaravelo.com</a></em></p>
-    <div class="vspace-base-top">
-      <p class="text-xs marquee-content">This site was designed and built by Tricia Ravelo <span class="no-wrap">(updated April 2022) &#x263A;</span></p>
-    </div>
-  </div>
+<footer>
+  <p class="text-xs">(updated August 2022)</p>
 </footer>
 
-<script>
-  var button = document.getElementById("toggle-info-button");
-  var content = document.getElementById("toggle-info-content");
-  button.addEventListener("click", function(){
-    button.classList.toggle("active");
-    if (content.hasAttribute("hidden")) {
-      content.removeAttribute("hidden");
-      content.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      button.innerHTML = "Less info";
-      button.setAttribute("aria-expanded","true");
-    } else {
-      content.hidden = true;
-      button.innerHTML = "More info";
-      button.setAttribute("aria-expanded","false");
-    }
-  });
-</script>
+
 
 </body>
 </html>

@@ -91,7 +91,7 @@
 // Variables: Vertical spacing
 // --------------------------------------------------------- /
 
-$vspace-unit: 4rem;
+$vspace-unit: 3rem;
 $vertical-rhythm-base: $vspace-unit;
 $vertical-rhythm-quarter: $vspace-unit * 0.2;
 $vertical-rhythm-half: $vspace-unit * 0.6;
@@ -109,26 +109,26 @@ $surface-color: #ffffff;
 $surface-color-reverse: #000000;
 $text-color: #000000;
 $text-color-reverse: #ffffff;
-$highlight-color: blue;
-$border: 0.21rem solid rgba($text-color, 1);
+$highlight-color: #DEDBFD;
+$border: 0.1rem dotted rgba($text-color, 1);
 $border-reverse: 0.21rem solid rbga($text-color-reverse, 1);
 
 
 // --------------------------------------------------------- /
-// Variables: Type scale (major third)
+// Variables: Type scale (perfect fourth)
 // --------------------------------------------------------- /
 
-$text-size-1: 5.96rem;
-$text-size-2: 4.768rem;
-$text-size-3: 3.815rem;
-$text-size-4: 3.052rem;
-$text-size-5: 2.441rem;
-$text-size-6: 1.953rem;
-$text-size-7: 1.563rem;
-$text-size-8: 1.25rem;
-$text-size-9: 1rem;
-$text-size-10: 0.8rem; //caption
+
+$text-size-1: 5.61rem; // large
+$text-size-2: 4.209rem;
+$text-size-3: 3.157rem; // medium
+$text-size-4: 2.369rem;
+$text-size-5: 1.777rem; // small
+$text-size-6: 1.333rem;
+$text-size-7: 1rem; // x-small
+$text-size-8: 0.75rem;
 $indent: $vspace-unit*.5;
+
 
 
 // --------------------------------------------------------- *
@@ -157,13 +157,6 @@ $indent: $vspace-unit*.5;
   font-style: normal;
 }
 
-@font-face {
-  font-family: 'GT America Expanded Medium';
-  src: url('fonts/GT-America-Expanded-Medium.woff2') format('woff2'),
-       url('fonts/GT-America-Expanded-Medium.woff') format('woff'),;
-  font-weight: 400;
-  font-style: normal;
-}
 
 @font-face {
   font-family: 'Self Modern';
@@ -186,39 +179,29 @@ $indent: $vspace-unit*.5;
 
 $serif: 'Self Modern';
 $sans-serif: 'Basis Grotesque Web';
-$display: 'GT America Expanded Medium';
+
 
 %serif {
   font-family: 'Self Modern';
   font-weight: 400;
   font-style: normal;
   font-stretch: normal;
-  letter-spacing: -0.1rem;
-}
-
-%display {
-  font-family: $display;
-  font-weight: 400;
-  font-style: normal;
-  font-stretch: normal;
-  letter-spacing: 0rem;
-  font-feature-settings: 'ss05';
-
+  letter-spacing: -0.075rem;
 }
 
 
 
 html {
-  font-size: 14px;
-  @include breakpoint(mobile-portrait) { font-size: 16px; }
+  font-size: 16px;
 }
 
 body {
   background-color: $surface-color;
   color: $text-color;
   font-family: $sans-serif;
-  line-height: 1.2;
+  line-height: 1.3;
   font-kerning: normal;
+  letter-spacing: normal;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
 }
@@ -230,12 +213,9 @@ body {
 
 
 // Global text helper classes
-.text-sans { font-family: $sans-serif; }
+.text-sans { font-family: $sans-serif; letter-spacing: -0.025rem;}
 .text-serif { @extend %serif; }
-.text-indent {
-  text-indent: $indent*0.6;
-  @include breakpoint(mobile-landscape) { text-indent: $indent; }
-}
+.text-accent {@extend %serif; font-style: italic;}
 .no-wrap { white-space: nowrap; }
 .uppercase { text-transform: uppercase; }
 .text-center { text-align: center; }
@@ -246,78 +226,49 @@ body {
 
 
 .text-xs, %text-xs {
-    font-size: $text-size-9;
-    //@include breakpoint(mobile-portrait) { font-size: inherit; }
-    @include breakpoint(mobile-landscape) { font-size: $text-size-8; }
-    //@include breakpoint(tablet) { font-size: inherit; }
-    //@include breakpoint(desktop) { font-size: inherit; }
-    //@include breakpoint(large) { font-size: inherit; }
+    font-size: $text-size-8;
+    @include breakpoint(mobile-landscape) { font-size: $text-size-7; }
  }
 
 .text-s, %text-s {
-    font-size: $text-size-7;
-    @include breakpoint(mobile-portrait) { font-size: $text-size-6; }
+    font-size: $text-size-6;
     @include breakpoint(mobile-landscape) { font-size: $text-size-5; }
-    @include breakpoint(tablet) { font-size: $text-size-4; }
-    //@include breakpoint(desktop) { font-size: inherit; }
-    //@include breakpoint(large) { font-size: inherit; }
  }
 
 .text-m, %text-m {
    font-size: $text-size-5;
-   //@include breakpoint(mobile-portrait) { font-size: $text-size-4; }
    @include breakpoint(mobile-landscape) { font-size: $text-size-4; }
    @include breakpoint(tablet) { font-size: $text-size-3; }
-   //@include breakpoint(desktop) { font-size: inherit; }
-   //@include breakpoint(large) { font-size: inherit; }
-   @include breakpoint(extralarge) { font-size: $text-size-2; }
 }
 
 .text-l, %text-l {
-   font-size: $text-size-4;
-   //@include breakpoint(mobile-portrait) { font-size: inherit; }
-   @include breakpoint(mobile-landscape) { font-size: $text-size-2; }
+   font-size: $text-size-1;
+   @include breakpoint(mobile-landscape) { font-size: $text-size-1; }
    @include breakpoint(tablet) { font-size: $text-size-1; }
-   //@include breakpoint(desktop) { font-size: inherit; }
-   //@include breakpoint(large) { font-size: inherit; }
 }
 
 p {
-  font-size: $text-size-7;
+  font-size: $text-size-5;
   margin: 0;
   padding: 0;
 
-  &.text-m { line-height: 1.05; }
+  &.text-m { line-height: 1.15; }
 
-  //@include breakpoint(mobile-portrait) { font-size: inherit; }
-  //@include breakpoint(mobile-landscape) { font-size: inherit; }
-  @include breakpoint(tablet) { font-size: $text-size-5; }
-  //@include breakpoint(desktop) { font-size: inherit; }
-  //@include breakpoint(large) { font-size: inherit; }
 }
 
-h1 {
+h1, h2, h3, h4, h5, h6 {
   font-size: $text-size-5;
-  @extend %display;
+  font-weight: 400;
   margin-bottom: $vertical-rhythm-quarter;
-  @include breakpoint(tablet) { margin-bottom: $vertical-rhythm-half; }
-
-  @include breakpoint(mobile-portrait) { font-size: $text-size-4; }
-  @include breakpoint(mobile-landscape) { font-size: $text-size-2; }
-  @include breakpoint(tablet) { font-size: $text-size-1; }
-  //@include breakpoint(desktop) { font-size: inherit; }
-  //@include breakpoint(large) { font-size: inherit; }
 }
 
 
 a {
   color: inherit;
   text-decoration: none;
-  border-bottom: $border;
 
   &:hover {
-    background-color: $surface-color-reverse;
-    color: $text-color-reverse;
+    border-bottom: $border;
   }
 }
 
@@ -328,76 +279,8 @@ ul {
   padding: 0;
   margin: 0;
   font-size: $text-size-7;
-  //@include breakpoint(mobile-portrait) { font-size: inherit; }
-  //@include breakpoint(mobile-landscape) { font-size: inherit; }
-  @include breakpoint(tablet) { font-size: $text-size-5; }
-  //@include breakpoint(desktop) { font-size: inherit; }
-  //@include breakpoint(large) { font-size: inherit; }
 
-  &.simple {
-    margin-left: $indent*0.6;
-    li a { border-bottom: none; line-height: 1.25;}
-    @include breakpoint(mobile-landscape) { margin-left: $indent; }
-  }
-
-  &.horizontal {
-    display: inline-block;
-
-    li {
-      float: left;
-      width: 100%;
-      margin-right: 0.25rem;
-      margin-bottom: 0.5rem;
-      @include breakpoint(desktop) {
-        margin-bottom: 0.75rem;
-        width: auto;
-      }
-
-      &.break {
-        @include breakpoint(desktop) { margin-right: 10rem; }
-      }
-    }
-  }
-
-}
-
-
-// Special style: hyperlinks with oval outlines
-a.outlined {
-  display:inline-block;
-  padding: 0.2rem 1rem 0.4rem;
-  @extend %serif;
-  font-size: $text-size-6;
-  font-style: italic;
-  border: 0.125rem solid $text-color;
-  border-radius: 15rem;
-
-  @include breakpoint(mobile-landscape) {
-    border: 0.175rem solid $text-color;
-    font-size: $text-size-4;
-  }
-
-  @include breakpoint(tablet) {
-    border: 0.215rem solid $text-color;
-    font-size: $text-size-3;
-  }
-
-}
-
-// Special style: show+hide info button
-button {
-  padding: 0;
-  margin: 0;
-  border: none;
-  background-color: inherit;
-  border-bottom: $border;
-  color: $text-color;
-
-  &:hover, &.active {
-    cursor: pointer;
-    background-color: $surface-color-reverse;
-    color: $text-color-reverse;
-  }
+  li {margin-bottom: $vertical-rhythm-base * 0.05;}
 }
 
 
@@ -410,52 +293,7 @@ button {
 .bg-primary { background-color: $surface-color; }
 .bg-dark { background-color: $surface-color-reverse; color: $text-color-reverse; }
 .text-reverse { color: $text-color-reverse; }
-.text-muted { color: rgba($text-color-reverse, 0.7); }
-
-
-
-// --------------------------------------------------------- /
-// Novelty: Marquee effect
-// --------------------------------------------------------- /
-
-$marquee-speed: 30s;
-$marquee-x-pos-start: 90%;
-$marquee-x-pos-end: -100%;
-
-
-p.marquee-content {
-  color: rgba($text-color-reverse, 0.7);
-
-  @include breakpoint(desktop) {
-    -moz-animation: marquee $marquee-speed linear infinite;
-    -webkit-animation: marquee $marquee-speed linear infinite;
-    animation: marquee $marquee-speed linear infinite;
-  }
-}
-
-
-@-moz-keyframes marquee {
-  0% { transform: translateX($marquee-x-pos-start); }
-  100% { transform: translateX($marquee-x-pos-end); }
-}
-
-@-webkit-keyframes marquee {
-  0% { transform: translateX($marquee-x-pos-start); }
-  100% { transform: translateX($marquee-x-pos-end); }
-}
-
-@keyframes marquee {
-  0% {
-    -moz-transform: translateX($marquee-x-pos-start);
-    -webkit-transform: translateX($marquee-x-pos-start);
-    transform: translateX($marquee-x-pos-start);
-  }
-  100% {
-    -moz-transform: translateX($marquee-x-pos-end);
-    -webkit-transform: translateX($marquee-x-pos-end);
-    transform: translateX($marquee-x-pos-end);
-  }
-}
+.text-muted { color: #777777; }
 
 
 
@@ -516,10 +354,10 @@ footer { overflow-x: hidden; }
 }
 
 header, section, footer, .wrapper-large {
-  padding: $vertical-rhythm-half $vertical-rhythm-quarter;
+  padding: $vertical-rhythm-half;
   margin: 0 auto;
 
-  @include breakpoint(mobile-landscape) { padding: $vertical-rhythm-half; }
+  @include breakpoint(tablet) { padding: $vertical-rhythm-base; }
 }
 
 
